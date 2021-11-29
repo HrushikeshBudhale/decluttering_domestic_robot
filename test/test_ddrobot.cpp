@@ -2,6 +2,7 @@
 #include <gtest/gtest.h>
 #include <ros/ros.h>
 
+std::shared_ptr<ros::NodeHandle> nh;
 
 TEST(test_navigation_class, test_one) {
     EXPECT_EQ(1,1);
