@@ -1,6 +1,6 @@
 <!-- [![Build Status](https://app.travis-ci.com/HrushikeshBudhale/decluttering_domestic_robot.svg?branch=main)](https://app.travis-ci.com/HrushikeshBudhale/decluttering_domestic_robot) -->
 
-[![Build Status](https://github.com/HrushikeshBudhale/decluttering_domestic_robot/workflows/CI/badge.svg?branch=master](https://github.com/HrushikeshBudhale/decluttering_domestic_robot/actions)
+[![Build Status](https://github.com/HrushikeshBudhale/decluttering_domestic_robot/workflows/CI/badge.svg?branch=sprint1](https://github.com/HrushikeshBudhale/decluttering_domestic_robot/actions)
 [![Coverage Status](https://coveralls.io/repos/github/HrushikeshBudhale/decluttering_domestic_robot/badge.svg?branch=main)](https://coveralls.io/github/HrushikeshBudhale/decluttering_domestic_robot?branch=main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # decluttering_domestic_robot
