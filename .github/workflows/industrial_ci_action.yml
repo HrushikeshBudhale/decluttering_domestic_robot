@@ -15,10 +15,10 @@ jobs:
             env:
               PYTHON_VERSION:
               ROS_DISTRO: melodic
-          - image: 'ros:noetic'
-            env:
-              PYTHON_VERSION: 3
-              ROS_DISTRO: noetic
+          # - image: 'ros:noetic'
+          #   env:
+          #     PYTHON_VERSION: 3
+          #     ROS_DISTRO: noetic
 
     container: ${{ matrix.container }}
 
