@@ -15,10 +15,6 @@ jobs:
             env:
               PYTHON_VERSION:
               ROS_DISTRO: melodic
-          # - image: 'ros:noetic'
-          #   env:
-          #     PYTHON_VERSION: 3
-          #     ROS_DISTRO: noetic
 
     container: ${{ matrix.container }}
 
@@ -29,10 +25,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          path: src/decluttering_domestic_robot
+          path: src/${{ github.workspace }}
 
-      # Remove apt repos that are known to break from time to time.
-      # See https://github.com/actions/virtual-environments/issues/323
       - name: Remove broken apt repos [Ubuntu]
         run: |
           for apt_file in `grep -lr microsoft /etc/apt/sources.list.d/`; do sudo rm $apt_file; done
