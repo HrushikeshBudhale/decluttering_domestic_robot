@@ -18,7 +18,6 @@ find_package(catkin REQUIRED COMPONENTS
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
-
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
@@ -217,3 +216,20 @@ if(CATKIN_ENABLE_TESTING)
     the_rostest ${catkin_LIBRARIES}
   )
 endif()
+
+
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+)
+
+add_library(dcrobot_library src/dcrobot.cpp)
+add_library(navigation_library src/navigation.cpp)
+
+add_executable(dcrobot_node src/dcrobot_node.cpp)
+
+target_link_libraries(dcrobot_node
+  dcrobot_library
+  navigation_library
+  ${catkin_LIBRARIES}
+)
