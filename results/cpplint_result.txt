@@ -1,0 +1,12 @@
+Done processing ./include/dcrobot/dcrobot.hpp
+Done processing ./include/detect_object/detect_object.hpp
+Done processing ./include/grasp_object/grasp_object.hpp
+Done processing ./include/navigation/navigation.hpp
+Done processing ./include/object_spawner/object_spawner.hpp
+Done processing ./src/dcrobot.cpp
+Done processing ./src/dcrobot_node.cpp
+Done processing ./src/detect_object.cpp
+Done processing ./src/grasp_object.cpp
+Done processing ./src/navigation.cpp
+Done processing ./src/object_spawner.cpp
+Done processing ./test/test_ddrobot.cpp
