@@ -1,5 +1,5 @@
 /**
- * @file test_ddrobot.cpp
+ * @file test_dcrobot.cpp
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1

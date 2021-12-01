@@ -211,7 +211,7 @@ if(CATKIN_ENABLE_TESTING)
   add_rostest_gtest(
     the_rostest 
     test/navigation_test.test 
-    test/test_ddrobot.cpp)
+    test/test_dcrobot.cpp)
   target_link_libraries(
     the_rostest ${catkin_LIBRARIES}
   )

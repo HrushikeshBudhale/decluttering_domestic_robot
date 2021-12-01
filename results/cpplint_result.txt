@@ -9,4 +9,4 @@ Done processing ./src/detect_object.cpp
 Done processing ./src/grasp_object.cpp
 Done processing ./src/navigation.cpp
 Done processing ./src/object_spawner.cpp
-Done processing ./test/test_ddrobot.cpp
+Done processing ./test/test_dcrobot.cpp
