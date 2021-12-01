@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- <node pkg="decluttering_domestic_robot" name="" type=""/> -->
+  <test pkg="decluttering_domestic_robot" test-name="talker_tests" type="the_rostest" />
+</launch>
+
