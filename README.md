@@ -14,8 +14,6 @@ Since robots are being rapidly deployed for various domestic applications, Acme 
 * Navigator     - Abhijit Mahalle
 * Design Keeper - Ameya Konkar
 
-### Assumptions
-
 ### Product Backlog
 Product backlog can be found in [google sheet](https://docs.google.com/spreadsheets/d/1uLx1TDejwb_q-EkkCh65zcsgOdo6YiGDN0ZlcO-tUYo/edit?usp=sharing)
 
