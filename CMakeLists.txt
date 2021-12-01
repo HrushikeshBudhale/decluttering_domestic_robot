@@ -225,11 +225,15 @@ include_directories(
 
 add_library(dcrobot_library src/dcrobot.cpp)
 add_library(navigation_library src/navigation.cpp)
+add_library(detect_object_library src/detect_object.cpp)
+add_library(grasp_object_library src/grasp_object.cpp)
 
 add_executable(dcrobot_node src/dcrobot_node.cpp)
 
 target_link_libraries(dcrobot_node
   dcrobot_library
   navigation_library
+  detect_object_library
+  grasp_object_library
   ${catkin_LIBRARIES}
 )
