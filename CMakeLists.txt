@@ -16,6 +16,9 @@ find_package(catkin REQUIRED COMPONENTS
   moveit_core
   moveit_ros_planning
   moveit_ros_planning_interface
+  tf2_eigen
+  tf2_geometry_msgs
+  tf2_ros
   moveit_msgs
   image_transport
   cv_bridge
