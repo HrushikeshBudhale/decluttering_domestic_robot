@@ -29,6 +29,7 @@
 class Navigation {
  public:
     explicit Navigation(ros::NodeHandle*);
+    void set_next_checkpoint_as_goal();
     geometry_msgs::Point getNextCheckpoint();
     geometry_msgs::Point getBinLocation();
     void moveToNextCheckpoint();

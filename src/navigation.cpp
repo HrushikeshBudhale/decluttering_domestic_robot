@@ -36,6 +36,23 @@ Navigation::Navigation(ros::NodeHandle* node_handle) {
     initialize_checkpoint_list();
 }
 
+void Navigation::set_next_checkpoint_as_goal() {
+    checkpoint_counter_++;
+    if (checkpoint_counter_ < checkpoints_.size()) {
+        geometry_msgs::PoseStamped goalPose;
+        goalPose.pose.position = checkpoints_[checkpoint_counter_].position;
+        goalPose.pose.orientation.w = 1.0;
+        goalPose.header.frame_id = "map";
+        goal_pub_.publish(goalPose);
+        goal_pub_.publish(goalPose);
+        goal_pose_ = goalPose.pose;
+        ROS_INFO_STREAM("[Navigation] Publishied next checkpoint pose as goal");
+    } else {
+        ROS_INFO_STREAM("[Navigation] No more checkpoints available");
+    }
+    return;
+}
+
 geometry_msgs::Point Navigation::getNextCheckpoint() {
     // functions responsible for getting position of next checkpoint
     return geometry_msgs::Point();
