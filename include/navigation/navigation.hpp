@@ -31,6 +31,7 @@ class Navigation {
     explicit Navigation(ros::NodeHandle*);
     void set_next_checkpoint_as_goal();
     void set_bin_location_as_goal();
+    void robot_pose_cb(const geometry_msgs::PoseWithCovarianceStamped&);
     geometry_msgs::Point getNextCheckpoint();
     geometry_msgs::Point getBinLocation();
     void moveToNextCheckpoint();

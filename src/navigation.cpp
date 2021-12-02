@@ -70,3 +70,9 @@ void Navigation::set_bin_location_as_goal() {
     ROS_INFO_STREAM("[Navigation] Publishied bin pose as goal");
     return;
 }
+
+void Navigation::robot_pose_cb(
+    const geometry_msgs::PoseWithCovarianceStamped &robot_pose) {
+    current_pose_ = robot_pose.pose.pose;
+    is_pose_initialized_ = true;
+}
