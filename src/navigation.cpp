@@ -53,24 +53,20 @@ void Navigation::set_next_checkpoint_as_goal() {
     return;
 }
 
-geometry_msgs::Point Navigation::getNextCheckpoint() {
-    // functions responsible for getting position of next checkpoint
-    return geometry_msgs::Point();
-}
+void Navigation::set_bin_location_as_goal() {
+    // clear cost map in the existing map
+    std_srvs::Empty srv;
+    clear_cost_map_client_.call(srv);
 
-geometry_msgs::Point Navigation::getBinLocation() {
-    // function responsible for getting bin location after picking up the object
-    return geometry_msgs::Point();
-}
-
-void Navigation::moveToNextCheckpoint() {
-    // function responsible for making robot move to next unattended checkpoint
-}
-
-void Navigation::moveNearObject(geometry_msgs::Pose) {
-    // function responsible for moving the robot near object after detecting it
-}
-
-void Navigation::turnAround() {
-    // function for making robot turn around to detect the object
+    geometry_msgs::PoseStamped goalPose;
+    goalPose.pose.position = bin_location_.position;
+    goalPose.pose.orientation.w = 1.0;
+    goalPose.header.frame_id = "map";
+    goal_pub_.publish(goalPose);
+    goal_pub_.publish(goalPose);
+    goal_pose_ = goalPose.pose;
+    ROS_INFO_STREAM("[Navigation] bin location x: " << goalPose.pose.position.x
+                                        << ", y: " << goalPose.pose.position.y);
+    ROS_INFO_STREAM("[Navigation] Publishied bin pose as goal");
+    return;
 }
