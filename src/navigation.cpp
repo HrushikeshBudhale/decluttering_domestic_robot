@@ -86,3 +86,26 @@ bool Navigation::is_goal_reached() {
     if (distance <= 0.1) return true;
     return false;
 }
+
+void Navigation::turn_around() {
+    if (is_pose_initialized_) {
+        if (turn_state == TURN_START) {
+            tf2::fromMsg(current_pose_.orientation, initial_tf_quat_);
+            initial_tf_quat_ = initial_tf_quat_.inverse();
+            turn_state = TURNING;
+        } else {
+            tf2::Quaternion tf2_quat;
+            tf2::fromMsg(current_pose_.orientation, tf2_quat);
+            tf2_quat *= initial_tf_quat_;
+            auto angle = tf2::getYaw(tf2_quat);
+            set_turning_velocity();
+            // ROS_INFO_STREAM("[Navigation] Turning around: " << angle);
+            if (angle > -0.1 && angle < 0) {
+                turn_state = TURN_COMPLETE;
+                ROS_INFO_STREAM("[Navigation] Turning complete");
+            }
+        }
+    } else {
+        ROS_INFO_STREAM("[Navigation] waiting for initial pose");
+    }
+}
