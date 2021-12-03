@@ -76,3 +76,13 @@ void Navigation::robot_pose_cb(
     current_pose_ = robot_pose.pose.pose;
     is_pose_initialized_ = true;
 }
+
+bool Navigation::is_goal_reached() {
+    double x_sq = std::pow(
+        current_pose_.position.x- goal_pose_.position.x, 2);
+    double y_sq = std::pow(
+        current_pose_.position.y- goal_pose_.position.y, 2);
+    double distance = std::sqrt(x_sq + y_sq);
+    if (distance <= 0.1) return true;
+    return false;
+}
