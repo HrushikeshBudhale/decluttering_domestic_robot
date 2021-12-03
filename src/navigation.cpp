@@ -109,3 +109,17 @@ void Navigation::turn_around() {
         ROS_INFO_STREAM("[Navigation] waiting for initial pose");
     }
 }
+
+void Navigation::stop_moving() {
+    actionlib_msgs::GoalID new_msg;
+    cancel_goal_pub_.publish(new_msg);
+    actionlib_msgs::GoalStatusArrayConstPtr reply;
+    ROS_INFO_STREAM("[Navigation] Waiting for goal cancellation response.");
+    reply = ros::topic::waitForMessage<actionlib_msgs::GoalStatusArray>(
+                                                            "/move_base/status",
+                                                            ros::Duration(2));
+    if (reply == NULL)
+        ROS_ERROR_STREAM("[Navigation] Cancellation request not received");
+    else
+        ROS_INFO_STREAM("[Navigation] Robot stopped moving");
+}
