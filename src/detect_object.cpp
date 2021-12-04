@@ -11,8 +11,16 @@
 
 #include <detect_object/detect_object.hpp>
 
-DetectObject::DetectObject() {
+DetectObject::DetectObject(ros::NodeHandle* node_handle):
+                                        image_transport_(*node_handle) {
     // set predefined object color
+    image_sub_ = image_transport_.subscribe("xtion/rgb/image_raw", 1,
+                                &DetectObject::image_cb, this,
+                                image_transport::TransportHints("compressed"));
+    is_object_detected = false;
+    cv::namedWindow("1", 0);
+    cv::namedWindow("2", 0);
+    ROS_INFO_STREAM("[DetectObject] DetectObject object initialized");
 }
 
 
