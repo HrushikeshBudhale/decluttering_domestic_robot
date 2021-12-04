@@ -43,3 +43,43 @@ ObjectSpawner::ObjectSpawner(ros::NodeHandle* node_handle):
     ROS_INFO_STREAM("[ObjectSpawner] ObjectSpawner object initialized");
 }
 
+bool ObjectSpawner::spawn_object() {
+    if (is_spawned) {
+        ROS_INFO_STREAM("[object_spawner] Object has already been spawned.");
+        return 0;
+    }
+    spawn_object_client_ =
+        nh_->serviceClient<gazebo_msgs::SpawnModel>("/gazebo/spawn_urdf_model");
+    gazebo_msgs::SpawnModel srv;
+    srv.request.model_name = object_name;
+    srv.request.model_xml = urdf_string_;
+    srv.request.initial_pose.position.x = (rand_r(&seed)%
+                                        (std::abs(map_range[2] - map_range[0]))
+                                                            + map_range[0]);
+    srv.request.initial_pose.position.y = (rand_r(&seed)%
+                                        (std::abs(map_range[3] - map_range[1]))
+                                                            + map_range[1]);
+    // srv.request.initial_pose.position.x = 4;
+    // srv.request.initial_pose.position.y = 2;
+    srv.request.initial_pose.position.z = 0.025;
+    srv.request.initial_pose.orientation.w = 1;
+    srv.request.reference_frame = "world";
+
+
+    if (spawn_object_client_.call(srv)) {
+        ROS_INFO_STREAM("[object_spawner] Object spawned successfully");
+        is_spawned = true;
+        // Update tf frame
+        object_pose_ = srv.request.initial_pose;
+        // Create timer to keep updating the frame
+        object_pose_tf_timer_ = nh_->createTimer(ros::Duration(0.1),
+                                            &ObjectSpawner::publish_pose, this);
+        // Start service server to listen if object is in hand
+        update_state_service_ = nh_->advertiseService("/setObjectState",
+                                    &ObjectSpawner::set_object_state_cb, this);
+    } else {
+        ROS_ERROR_STREAM("[object_spawner] Failed to spawn object");
+        return 1;
+    }
+    return 0;
+}
