@@ -34,6 +34,7 @@ class Navigation {
     void robot_pose_cb(const geometry_msgs::PoseWithCovarianceStamped&);
     bool is_goal_reached();
     void stop_moving();
+    void set_object_pose_as_goal(geometry_msgs::Pose);
     geometry_msgs::Point getNextCheckpoint();
     geometry_msgs::Point getBinLocation();
     void moveToNextCheckpoint();

@@ -123,3 +123,17 @@ void Navigation::stop_moving() {
     else
         ROS_INFO_STREAM("[Navigation] Robot stopped moving");
 }
+
+void Navigation::set_object_pose_as_goal(geometry_msgs::Pose objectPose) {
+    geometry_msgs::PoseStamped goalPose;
+    // ROS_INFO_STREAM("[Navigation] Setting X: " << objectPose.position.x
+    //                                 << ", Y: " << objectPose.position.y);
+    goalPose.pose.position = objectPose.position;
+    goalPose.pose.orientation.w = 1.0;
+    goalPose.header.frame_id = "map";
+    goal_pub_.publish(goalPose);
+    goal_pub_.publish(goalPose);
+    goal_pose_ = goalPose.pose;
+    ROS_INFO_STREAM("[Navigation] Publishied object pose as goal");
+    return;
+}
