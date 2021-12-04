@@ -42,6 +42,7 @@ class DetectObject {
     explicit DetectObject(ros::NodeHandle*);
     bool detect_object();
     bool is_object_detected;
+    void image_cb(const sensor_msgs::ImageConstPtr&);
 
  private:
     int i;

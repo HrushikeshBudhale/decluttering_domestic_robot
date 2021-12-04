@@ -54,5 +54,15 @@ bool DetectObject::detect_object() {
     return true;
 }
 
-
+void DetectObject::image_cb(const sensor_msgs::ImageConstPtr& msg) {
+    cv_bridge::CvImagePtr cvPtr;
+    try {
+        cvPtr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+    } catch (cv_bridge::Exception& e) {
+        ROS_ERROR("cv_bridge exception: %s", e.what());
+        return;
+    }
+    cvPtr->image.copyTo(img_bgr_);
+    this->detect_object();
+}
 
