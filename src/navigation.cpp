@@ -137,3 +137,15 @@ void Navigation::set_object_pose_as_goal(geometry_msgs::Pose objectPose) {
     ROS_INFO_STREAM("[Navigation] Publishied object pose as goal");
     return;
 }
+
+void Navigation::initialize_checkpoint_list() {
+    int cp_arr_x[5] = {0, 1, 4, -1, -4};
+    int cp_arr_y[5] = {0, -1, -6, -6, -3};
+    for (int i = 0; i < 5; i++) {
+        geometry_msgs::Pose checkpoint_pose;
+        checkpoint_pose.position.x = cp_arr_x[i];
+        checkpoint_pose.position.y = cp_arr_y[i];
+        checkpoints_.push_back(checkpoint_pose);
+    }
+    ROS_INFO_STREAM("[Navigation] Navigation object initialized");
+}

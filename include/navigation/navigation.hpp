@@ -35,10 +35,29 @@ class Navigation {
     bool is_goal_reached();
     void stop_moving();
     void set_object_pose_as_goal(geometry_msgs::Pose);
-    geometry_msgs::Point getNextCheckpoint();
-    geometry_msgs::Point getBinLocation();
-    void moveToNextCheckpoint();
-    void moveNearObject(geometry_msgs::Pose);
-    void turnAround();
-};
+    enum turning {
+        TURN_START,
+        TURNING,
+        TURN_COMPLETE
+    };
+    turning turn_state;
 
+ private:
+    void initialize_checkpoint_list();
+
+    ros::NodeHandle* nh_;
+    ros::Subscriber cur_pose_sub_;
+    ros::Publisher goal_pub_;
+    ros::Publisher vel_pub_;
+    ros::Publisher cancel_goal_pub_;
+    ros::ServiceClient clear_cost_map_client_;
+
+    bool is_pose_initialized_;
+
+    geometry_msgs::Pose current_pose_;
+    geometry_msgs::Pose bin_location_;
+    geometry_msgs::Pose goal_pose_;
+    tf2::Quaternion initial_tf_quat_;
+    std::vector <geometry_msgs::Pose> checkpoints_;
+    std::vector<geometry_msgs::Pose>::size_type checkpoint_counter_;
+};
