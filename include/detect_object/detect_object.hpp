@@ -19,15 +19,35 @@
 #include <cv_bridge/cv_bridge.h>
 #include <ros/ros.h>
 
+// Std C++ headers
+#include <string.h>
+#include <vector>
 
+// OpenCV headers
+#include <opencv2/objdetect/objdetect.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
+// Std C++ headers
+#include <string.h>
+#include <vector>
+
+// OpenCV headers
+#include <opencv2/objdetect/objdetect.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 class DetectObject {
  public:
-    DetectObject();
-    bool detectColor();
-    geometry_msgs::Pose getPosition();
+    explicit DetectObject(ros::NodeHandle*);
+    bool detect_object();
+    bool is_object_detected;
 
  private:
-    int objectColor;
-    geometry_msgs::Pose objectPosition;
+    int i;
+    ros::NodeHandle* nh_;
+    cv::Mat img_bgr_, frame_hsv_, frame_thresh_;
+    image_transport::ImageTransport image_transport_;
+    image_transport::Subscriber image_sub_;
+    std::vector<std::vector<cv::Point>> contours_;
 };
