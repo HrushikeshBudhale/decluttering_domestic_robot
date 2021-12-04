@@ -44,6 +44,7 @@ class Navigation {
 
  private:
     void initialize_checkpoint_list();
+    void set_turning_velocity();
 
     ros::NodeHandle* nh_;
     ros::Subscriber cur_pose_sub_;

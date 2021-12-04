@@ -149,3 +149,10 @@ void Navigation::initialize_checkpoint_list() {
     }
     ROS_INFO_STREAM("[Navigation] Navigation object initialized");
 }
+
+void Navigation::set_turning_velocity() {
+    // function for making robot turn around to detect the object
+    geometry_msgs::Twist orientation;
+    orientation.angular.z = 0.6;
+    vel_pub_.publish(orientation);
+}
