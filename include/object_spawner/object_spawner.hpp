@@ -29,6 +29,8 @@ class ObjectSpawner {
  public:
     explicit ObjectSpawner(ros::NodeHandle*);
     bool spawn_object();
+    bool set_object_state_cb(std_srvs::SetBool::Request&,
+                            std_srvs::SetBool::Response&);
     void getRange(std::string);
     std::pair<float, float> getRandomLocation();
 

@@ -83,3 +83,11 @@ bool ObjectSpawner::spawn_object() {
     }
     return 0;
 }
+
+bool ObjectSpawner::set_object_state_cb(std_srvs::SetBool::Request &req,
+                                            std_srvs::SetBool::Response &res) {
+    is_object_in_hand = req.data;
+    res.message = "ObjectStateUpdated";
+    res.success = true;
+    return true;
+}
