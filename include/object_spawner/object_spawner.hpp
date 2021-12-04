@@ -9,17 +9,25 @@
  * 
  */
 
+##pragma once
 
+// ROS headers
+#include <std_srvs/SetBool.h>
+#include <gazebo_msgs/ModelState.h>
+#include <gazebo_msgs/SpawnModel.h>
+#include <tf2_ros/transform_broadcaster.h>
+#include <tf2_ros/transform_listener.h>
+#include <tf2_ros/buffer.h>
+#include <geometry_msgs/Pose.h>
+#include <ros/ros.h>
 
-#pragma once
-
-#include <vector>
-#include <utility>
+// Std C++ headers
+#include <stdlib.h>
 #include <string>
 
 class ObjectSpawner {
  public:
-    ObjectSpawner();
+    explicit ObjectSpawner(ros::NodeHandle*);
     void getRange(std::string);
     std::pair<float, float> getRandomLocation();
 
