@@ -32,8 +32,11 @@ class ObjectSpawner {
     bool set_object_state_cb(std_srvs::SetBool::Request&,
                             std_srvs::SetBool::Response&);
     void getRange(std::string);
+    void set_object_pose(geometry_msgs::Pose);
+
     std::pair<float, float> getRandomLocation();
 
  private:
     std::vector<std::pair<float, float>> mapRange;
 };
+

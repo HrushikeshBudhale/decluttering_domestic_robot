@@ -92,4 +92,11 @@ bool ObjectSpawner::set_object_state_cb(std_srvs::SetBool::Request &req,
     return true;
 }
 
+void ObjectSpawner::set_object_pose(geometry_msgs::Pose inPose) {
+    gazebo_msgs::ModelState new_msg;
+    new_msg.model_name = object_name;
+    new_msg.pose = inPose;
+    new_msg.reference_frame = "world";
+    pose_pub_.publish(new_msg);
+}
 
