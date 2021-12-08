@@ -28,12 +28,12 @@
 
 class GraspObject {
  public:
-    GraspObject();
-    void openGrip();
-    void closeGrip();
-    void pickObject(geometry_msgs::Pose);
-    void placeObject(geometry_msgs::Pose);
+    explicit GraspObject(ros::NodeHandle*);
+    void move_to_object_pose(geometry_msgs::Pose);
+    void move_to_pick_pose();
+    void move_to_place_pose();
+    void move_arm_to_pose(geometry_msgs::Pose);
  public:
-    geometry_msgs::Pose pickupLocation;
-    geometry_msgs::Pose placeLocation;
+    ros::NodeHandle* nh_;
+    ros::ServiceClient set_object_state_client_;
 };
