@@ -1,6 +1,6 @@
 /**
  * @file grasp_object.hpp
- * @author your name (you@domain.com)
+ * @author Ameya konkar (ameyakonk)
  * @brief 
  * @version 0.1
  * @date 2021-11-29
@@ -28,13 +28,35 @@
 
 class GraspObject {
  public:
+    /**
+     * @brief Construct a new Grasp Object object
+     * 
+     */
     explicit GraspObject(ros::NodeHandle*);
+     /**
+     * @brief move robot to object position 
+     * 
+     */
     void move_to_object_pose(geometry_msgs::Pose);
+    /**
+     * @brief Pick the object from the object position
+     * 
+     */
     void move_to_pick_pose();
+    /**
+     *  @brief Place the object to the bin position
+     * 
+     */
     void move_to_place_pose();
     
  public:
+    /**  Node handle  */
     ros::NodeHandle* nh_;
+    /** Service client to set object state  */
     ros::ServiceClient set_object_state_client_;
+    /**
+     *  @brief moves the robot arm to the object location.
+     * 
+     */
     void move_arm_to_pose(geometry_msgs::Pose);
 };
