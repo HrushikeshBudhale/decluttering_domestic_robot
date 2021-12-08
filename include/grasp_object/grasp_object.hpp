@@ -11,7 +11,20 @@
 
 #pragma once
 
+// ROS headers
 #include <geometry_msgs/Pose.h>
+#include <geometry_msgs/Quaternion.h>
+#include <std_srvs/SetBool.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+#include <tf2/transform_datatypes.h>
+#include <ros/ros.h>
+// MoveIt! headers
+#include <moveit/move_group_interface/move_group_interface.h>
+
+// Std C++ headers
+#include <string>
+#include <vector>
+#include <map>
 
 class GraspObject {
  public:

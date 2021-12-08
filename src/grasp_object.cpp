@@ -13,8 +13,11 @@
 #include <grasp_object/grasp_object.hpp>
 
 GraspObject::GraspObject() {
-    // setup moveit params
-    // setup publisher, subscriber and services
+     nh_ = nodeHandle;
+    //  Initializing Service client
+    set_object_state_client_ = nh_->serviceClient<std_srvs::SetBool>(
+                                                            "/setObjectState");
+    ROS_INFO_STREAM("[GraspObject] GraspObject object initialized");
 }
 
 
