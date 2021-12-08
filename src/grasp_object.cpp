@@ -80,3 +80,14 @@ void GraspObject::move_to_object_pose(geometry_msgs::Pose objectPose) {
     set_object_state_client_.call(srv);
 }
 
+void GraspObject::move_to_pick_pose() {
+    geometry_msgs::Pose goalPose;
+    tf2::Quaternion quat_tf;
+    // orientation after picking up
+    quat_tf.setRPY(0.011, 0.011, 1.57);
+    goalPose.position.x = 0.2;
+    goalPose.position.y = 0.0;
+    goalPose.position.z = 0.45;
+    goalPose.orientation = tf2::toMsg(quat_tf);
+    move_arm_to_pose(goalPose);
+}
