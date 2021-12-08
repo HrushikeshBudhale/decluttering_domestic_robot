@@ -67,5 +67,16 @@ void GraspObject::move_arm_to_pose(geometry_msgs::Pose inPose) {
     spinner.stop();
 }
 
+void GraspObject::move_to_object_pose(geometry_msgs::Pose objectPose) {
+    tf2::Quaternion quat_tf;
+    // orientation while picking up
+    quat_tf.setRPY(-0.011, 1.57, 1.57);
+    objectPose.position.z = 0.30;
+    objectPose.orientation = tf2::toMsg(quat_tf);
+    move_arm_to_pose(objectPose);
 
+    std_srvs::SetBool srv;
+    srv.request.data = true;
+    set_object_state_client_.call(srv);
+}
 
