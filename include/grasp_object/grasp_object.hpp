@@ -32,8 +32,9 @@ class GraspObject {
     void move_to_object_pose(geometry_msgs::Pose);
     void move_to_pick_pose();
     void move_to_place_pose();
-    void move_arm_to_pose(geometry_msgs::Pose);
+    
  public:
     ros::NodeHandle* nh_;
     ros::ServiceClient set_object_state_client_;
+    void move_arm_to_pose(geometry_msgs::Pose);
 };
