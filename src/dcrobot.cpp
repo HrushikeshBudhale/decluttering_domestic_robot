@@ -110,3 +110,22 @@ bool DCRobot::is_obj_within_reach() {
     if (distance < 0.7) return true;
     return false;
 }
+
+geometry_msgs::Pose DCRobot::get_object_pose(std::string wrt) {
+    //  Checks if object is within reach of the robot arm.
+    geometry_msgs::Pose objectPose;
+    if (detectObj.is_object_detected == false) {
+        ROS_INFO_STREAM("[DCRobot] object has not been found yet.");
+    } else {
+        geometry_msgs::TransformStamped transformStamped;
+        transformStamped = tfBuffer_.lookupTransform(wrt, "blue_box",
+                                                            ros::Time(0));
+        objectPose.position.x = transformStamped.transform.translation.x;
+        objectPose.position.y = transformStamped.transform.translation.y;
+        objectPose.position.z = transformStamped.transform.translation.z;
+        // ROS_INFO_STREAM("[DCRobot] Got pose X: " << objectPose.position.x
+        //                                 << ", Y: " << objectPose.position.y);
+        objectPose.orientation = transformStamped.transform.rotation;
+    }
+    return objectPose;
+}
