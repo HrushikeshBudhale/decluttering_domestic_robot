@@ -143,3 +143,28 @@ void DCRobot::place_object() {
     graspObj.move_to_pick_pose();
     ROS_INFO_STREAM("[DCRobot] Object Placed");
 }
+
+void DCRobot::set_head_down() {
+    //  Setting the head orientation of the robot.
+    std::string camera_frame = "/xtion_rgb_optical_frame";
+    geometry_msgs::PointStamped pointStamped;
+    pointStamped.header.frame_id = camera_frame;
+    pointStamped.header.stamp    = ros::Time::now();
+    pointStamped.point.x = 0.0;
+    pointStamped.point.y = 0.8;    // value for looking down
+    pointStamped.point.z = 1.0;
+
+    // build the action goal
+    control_msgs::PointHeadGoal goal;
+
+    goal.pointing_frame = camera_frame;
+    goal.pointing_axis.x = 0.0;
+    goal.pointing_axis.y = 0.0;
+    goal.pointing_axis.z = 1.0;
+    goal.min_duration = ros::Duration(1.0);
+    goal.max_velocity = 0.25;
+    goal.target = pointStamped;
+
+    point_head_client_->sendGoal(goal);
+    ros::Duration(0.5).sleep();
+}
