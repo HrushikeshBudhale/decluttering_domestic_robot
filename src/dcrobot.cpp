@@ -99,3 +99,14 @@ void DCRobot::handle_states() {
             break;
     }
 }
+
+bool DCRobot::is_obj_within_reach() {
+    //  Checks if object is within reach of the robot arm.
+    auto objectPose = get_object_pose("base_link");
+    double dx = objectPose.position.x;
+    double dy = objectPose.position.y;
+    double distance = std::sqrt(dx*dx + dy*dy);
+    ROS_INFO_STREAM("[DCRobot] object is at distance: " << distance);
+    if (distance < 0.7) return true;
+    return false;
+}
