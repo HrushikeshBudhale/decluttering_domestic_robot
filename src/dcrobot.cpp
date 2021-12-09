@@ -129,3 +129,10 @@ geometry_msgs::Pose DCRobot::get_object_pose(std::string wrt) {
     }
     return objectPose;
 }
+
+void DCRobot::pick_up_object() {
+    //  Picking up the object
+    graspObj.move_to_object_pose(get_object_pose("base_link"));
+    graspObj.move_to_pick_pose();
+    ROS_INFO_STREAM("[DCRobot] Object Picked up");
+}
