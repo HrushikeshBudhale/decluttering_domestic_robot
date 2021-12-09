@@ -11,11 +11,12 @@
 
 #include <dcrobot/dcrobot.hpp>
 
-DCRobot::DCRobot() {
-    ROS_INFO_STREAM("Created DCRobot object");
-    // setup subscribers, publishers and services
-}
-
-void DCRobot::synchronizeTask() {
-    // function responsible for coordinating all the activities on service call
+DCRobot::DCRobot(ros::NodeHandle* node_handle):
+                    detectObj(node_handle),
+                    graspObj(node_handle),
+                    navigator(node_handle),
+                    tf_listener_(this->tfBuffer_) {
+    nh_ = node_handle;
+    state_ = robotState::STARTING;
+    ROS_INFO_STREAM("[DCRobot] DCRobot object initialized");
 }
