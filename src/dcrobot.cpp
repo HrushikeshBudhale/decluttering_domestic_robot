@@ -168,3 +168,22 @@ void DCRobot::set_head_down() {
     point_head_client_->sendGoal(goal);
     ros::Duration(0.5).sleep();
 }
+
+void DCRobot::create_point_head_client(PointHeadClientPtr& actionClient) {
+    ROS_INFO("[DCRobot] Creating action client to head controller ...");
+    actionClient.reset(
+                    new PointHeadClient("/head_controller/point_head_action"));
+
+    int iterations = 0, max_iterations = 3;
+    // Wait for head controller action server to come up
+    while (!actionClient->waitForServer(ros::Duration(2.0)) && ros::ok()
+                                            && iterations < max_iterations) {
+        ROS_DEBUG(R"([DCRobot] Waiting for the point_head_action server to come
+                                                                         up)");
+        ++iterations;
+  }
+
+  if ( iterations == max_iterations )
+    throw std::runtime_error(R"(Error in create_point_head_client: 
+                                head controller action server not available)");
+}
