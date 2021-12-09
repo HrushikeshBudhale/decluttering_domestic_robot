@@ -136,3 +136,10 @@ void DCRobot::pick_up_object() {
     graspObj.move_to_pick_pose();
     ROS_INFO_STREAM("[DCRobot] Object Picked up");
 }
+
+void DCRobot::place_object() {
+    //  Placing the object
+    graspObj.move_to_place_pose();
+    graspObj.move_to_pick_pose();
+    ROS_INFO_STREAM("[DCRobot] Object Placed");
+}
