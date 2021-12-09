@@ -36,11 +36,34 @@ typedef boost::shared_ptr<PointHeadClient> PointHeadClientPtr;
 
 class DCRobot {
  public:
-    DCRobot();
-    void synchronizeTask();
-
+    explicit DCRobot(ros::NodeHandle*);
+    void handle_states();
+    bool is_obj_within_reach();
+    geometry_msgs::Pose get_object_pose(std::string wrt = "map");
+    void pick_up_object();
+    void place_object();
+    enum robotState {
+        STARTING,
+        IDLE,
+        MOVING_TO_CHECKPOINT,
+        TURNING_AROUND,
+        OBJECT_FOUND,
+        MOVING_TOWARDS_OBJECT,
+        PICKING_OBJECT,
+        MOVING_TO_BIN_LOCATION,
+        PLACING_OBJECT,
+        STOP
+    };
+    Navigation navigator;
+    GraspObject graspObj;
+    DetectObject detectObj;
  private:
-    Navigation navigator();
-    GraspObject graspObj();
-    DetectObject detecteObj();
+    void set_head_down();
+    void create_point_head_client(PointHeadClientPtr&);
+    ros::NodeHandle* nh_;
+    tf2_ros::Buffer tfBuffer_;
+    tf2_ros::TransformListener tf_listener_;
+    PointHeadClientPtr point_head_client_;
+    robotState state_;
+    robotState pre_state_;
 };
