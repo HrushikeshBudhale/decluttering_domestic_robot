@@ -1,9 +1,9 @@
 /**
  * @file dcrobot.hpp
- * @author your name (you@domain.com)
+ * @author Ameya Konkar (ameyakonk)
  * @brief 
  * @version 0.1
- * @date 2021-11-29
+ * @date 2021-12-09
  * 
  * @copyright Copyright (c) 2021
  * 
@@ -36,12 +36,40 @@ typedef boost::shared_ptr<PointHeadClient> PointHeadClientPtr;
 
 class DCRobot {
  public:
+   /**
+     * @brief Construct a new DCRobot object
+     * 
+     */
     explicit DCRobot(ros::NodeHandle*);
+    /**
+     * @brief Synchronizes various tasks of the robot
+     * 
+     */
     void handle_states();
+    /**
+     * @brief Checks whether the object is within reach of the robot
+     * 
+     */
     bool is_obj_within_reach();
+    /**
+     * @brief Gets object pose from the world. 
+     * 
+     */
     geometry_msgs::Pose get_object_pose(std::string wrt = "map");
+    /**
+     * @brief Handles object picking by the robot.
+     * 
+     */
     void pick_up_object();
+    /**
+     * @brief Handles object placement by the robot.
+     * 
+     */
     void place_object();
+    /**
+     * @brief Enumerates various robot functioning states.
+     * 
+     */
     enum robotState {
         STARTING,
         IDLE,
@@ -54,16 +82,33 @@ class DCRobot {
         PLACING_OBJECT,
         STOP
     };
+    /** Instance for Navigation class created*/
     Navigation navigator;
+    /** Instance for graspObj class created*/
     GraspObject graspObj;
+    /** Instance for DetectObject class created*/
     DetectObject detectObj;
  private:
+   /**
+     * @brief Enumerates various object states.
+     * 
+     */
     void set_head_down();
+    /**
+     * @brief Enumerates various object states.
+     * 
+     */
     void create_point_head_client(PointHeadClientPtr&);
+    /** Node Handle created*/
     ros::NodeHandle* nh_;
+    /** TF buffer created*/
     tf2_ros::Buffer tfBuffer_;
+    /** TF listener created*/
     tf2_ros::TransformListener tf_listener_;
+    /** PointHeadClientPtr for head movement actions*/
     PointHeadClientPtr point_head_client_;
+    /** robotState for checking current state of the robot */
     robotState state_;
+    /** robotState for storing previous states of the robot*/
     robotState pre_state_;
 };
