@@ -1,6 +1,6 @@
 /**
  * @file dcrobot.cpp
- * @author your name (you@domain.com)
+ * @author Ameya Konkar (ameyakonk)
  * @brief 
  * @version 0.1
  * @date 2021-11-29
