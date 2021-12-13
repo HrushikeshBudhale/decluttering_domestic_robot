@@ -10,6 +10,14 @@ Since robots are being rapidly deployed for various domestic applications, Acme 
 
 ### Presentation Video link
 
+Video link: https://youtu.be/-lPjSiizmCI
+
+### Presentation link
+
+https://docs.google.com/presentation/d/1osl5vrxGRXqx1QkJhoWhC6rh83X2Kr2OMlprzH5XEH0/edit?userstoinvite=abhimah@umd.edu#slide=id.g107542cf1d8_6_10
+
+### Robot Simulation link
+
 Video link: https://youtu.be/NrRCCqRFqw4
 
 ### Development Team
@@ -74,13 +82,19 @@ Picking the object at certain positions and orientation is not possible for the 
 
 ---
 
-### Building the Program
+### Installing Tiago package
 
 ```
-sudo apt-get install git
 Install Tiago packages using the link: http://wiki.ros.org/Robots/TIAGo/Tutorials/Installation/InstallUbuntuAndROS
+
+```
+
+### Building and running the Program
+
+```
 cd <catkin workspace>/src
-git clone --recursive https://github.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver.git
+sudo apt-get install git
+git clone --recursive https://github.com/HrushikeshBudhale/decluttering_domestic_robot.git
 cd ..
 catkin build
 source ./devel/setup.bash
