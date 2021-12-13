@@ -7,12 +7,27 @@
 
 ### Project Overview and Description
 Since robots are being rapidly deployed for various domestic applications, Acme Robotics is looking to develop a domestic robot as a part of its 5-year product road-map. The robot called the "Domestic Decluttering Robot" will declutter the house floor by identifying different items, collecting them, and placing them at their desired location in the house.  The robot will scout the house floor to detect and grasp the desired object. Once grasped, it will place the object at the predefined location. The robot will have a camera to identify the object, Lidar sensor to make a 3D map of the environment around it, and a 8 DOF robotic manipulator mounted on it.
- 
+
+### Presentation Video link
+
+Video link: https://youtu.be/NrRCCqRFqw4
+
 ### Development Team
 #### Sprint 1
 * Driver        - Hrushikesh Budhale
 * Navigator     - Abhijit Mahalle
 * Design Keeper - Ameya Konkar
+
+#### Sprint 1
+* Driver        - Abhijit Mahalle
+* Navigator     - Ameya Konkar
+* Design Keeper - Hrushikesh Budhale
+
+#### Sprint 1
+* Driver        - Ameya Konkar
+* Navigator     - Hrushikesh Budhale
+* Design Keeper - Abhijit Mahalle
+
 
 ### Product Backlog
 Product backlog can be found in [google sheet](https://docs.google.com/spreadsheets/d/1uLx1TDejwb_q-EkkCh65zcsgOdo6YiGDN0ZlcO-tUYo/edit?usp=sharing)
@@ -48,6 +63,39 @@ Sprint planning notes can found in [google docs](https://docs.google.com/documen
 ### External Dependencies
 - [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)
 - [Gazebo](http://gazebosim.org/)
-- [Fetch Robot](http://docs.fetchrobotics.com/)
+- [Tiago Robot](http://wiki.ros.org/Robots/TIAGo/Tutorials)
 - [Moveit](https://moveit.ros.org/)
 - [Opencv](https://github.com/opencv/opencv)
+
+## Known Issues/Bugs
+
+---
+Picking the object at certain positions and orientation is not possible for the robot.
+
+---
+
+### Building the Program
+
+```
+sudo apt-get install git
+Install Tiago packages using the link: http://wiki.ros.org/Robots/TIAGo/Tutorials/Installation/InstallUbuntuAndROS
+cd <catkin workspace>/src
+git clone --recursive https://github.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver.git
+cd ..
+catkin build
+source ./devel/setup.bash
+roslaunch decluttering_domestic_robot simulation.launch
+
+```
+### To Build the Tests
+
+```
+Using Catkin Make: catkin_make tests
+
+```
+### To Run the Tests
+
+```
+rostest decluttering_domestic_robot main_test.test
+
+```
