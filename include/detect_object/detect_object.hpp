@@ -1,9 +1,9 @@
 /**
  * @file detect_object.hpp
- * @author your name (you@domain.com)
- * @brief 
+ * @author Abhijit Mahalle (abhimah@umd.edu)
+ * @brief  Library file for the DetectObject class
  * @version 0.1
- * @date 2021-11-29
+ * @date 2021-12-04
  * 
  * @copyright Copyright (c) 2021
  * 
@@ -39,9 +39,31 @@
 
 class DetectObject {
  public:
+   /**
+    * @brief Constructor for the DetectObject class
+    * 
+    * @param node_handle 
+    */
     explicit DetectObject(ros::NodeHandle*);
+
+    /**
+     * @brief Method to detect pre-defined object
+     * 
+     * @return true if the object is detected
+     * @return false  if the object is not detected 
+     */
     bool detect_object();
+
+    /**
+     * @brief Flag to check if the object is detected
+     */
     bool is_object_detected;
+
+    /**
+   * @brief callback function for receiving image published by Tiago
+   * 
+   * @param msg 
+   */
     void image_cb(const sensor_msgs::ImageConstPtr&);
 
  private:
