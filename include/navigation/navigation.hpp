@@ -1,8 +1,33 @@
 /**
+The MIT License (MIT)
+
+Copyright (c) 2021 <name>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+ */
+
+/**
+/**
  * @file navigation.hpp
  * @author Abhijit Mahalle (abhimah@umd.edu)
  * @brief 
- * @version 0.1s
+ * @version 0.1
  * @date 2021-01-12
  * 
  * @copyright Copyright (c) 2021
@@ -26,15 +51,67 @@
 // Std C++ headers
 #include <vector>
 
+
 class Navigation {
  public:
+    /**
+     * @brief Construct a new Navigation:: Navigation object
+     *        Creates publisher and subscriber objects     
+     * 
+     * @param node_handle
+     * @return void 
+     */
     explicit Navigation(ros::NodeHandle*);
+
+    /**
+     * @brief Updates new checkpoints as goal for the robot.
+     * @return void
+     */
     void set_next_checkpoint_as_goal();
+    
+    /**
+     * @brief sets bin location as goal for the robot 
+     * @return void
+     */
     void set_bin_location_as_goal();
+
+    /**
+     * @brief Callback function to obtain current robot position and orientation
+     * 
+     * @param robot_pose
+     * @return void 
+     */
     void robot_pose_cb(const geometry_msgs::PoseWithCovarianceStamped&);
+    
+    /**
+     * @brief Checks if a given is reached.
+     * 
+     * @return true if goal reached.
+     * @return false if goal is not reached.
+     */
     bool is_goal_reached();
+
+    /**
+     * @brief turns the robot by 180 degree 
+     *        or till the object is detected. 
+     * @return void
+     */
+    void turn_around();
+
+    /**
+     * @brief Stops moving the robot once the robot has reached within a 
+     *        certain distance from the object.
+     * @return void
+     */
     void stop_moving();
+    
+    /**
+     * @brief Sets object coordinates as a goal to the robot
+     * @return void
+     * @param objectPose 
+     */
     void set_object_pose_as_goal(geometry_msgs::Pose);
+    
     enum turning {
         TURN_START,
         TURNING,
@@ -43,22 +120,45 @@ class Navigation {
     turning turn_state;
 
  private:
-    void initialize_checkpoint_list();
+   
+    /**
+     * @brief Published turning velocity to the robot.
+     * @return void 
+     */
     void set_turning_velocity();
 
+    /**
+     * @brief initialize predefined checkpoints
+     * @return void
+     */
+    void initialize_checkpoint_list();
+
+    /** Node handle  */
     ros::NodeHandle* nh_;
+    /** subscriber to get current robot pose  */
     ros::Subscriber cur_pose_sub_;
+    /** Publisher to set checkpoint goals  */
     ros::Publisher goal_pub_;
+    /** Publisher to set turning velocity  of the robot */
     ros::Publisher vel_pub_;
+    /** Publisher to cancel a given goal  */
     ros::Publisher cancel_goal_pub_;
+    /** ServiceClient to clear cost map  */
     ros::ServiceClient clear_cost_map_client_;
 
+    /** checks if robot pose is received  */
     bool is_pose_initialized_;
 
+    /** stores current robot pose  */
     geometry_msgs::Pose current_pose_;
+    /** stores the target bin location  */
     geometry_msgs::Pose bin_location_;
+    /** stores the goal pose for the robot  */
     geometry_msgs::Pose goal_pose_;
+    /** stores initial robot orientation for the robot to rotate  */
     tf2::Quaternion initial_tf_quat_;
+    /** stores fixed checkpoints for the robot  */
     std::vector <geometry_msgs::Pose> checkpoints_;
+    /** iterator to change checkpoints  */
     std::vector<geometry_msgs::Pose>::size_type checkpoint_counter_;
 };
