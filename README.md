@@ -10,6 +10,14 @@ Since robots are being rapidly deployed for various domestic applications, Acme 
 
 ### Presentation Video link
 
+Video link: https://youtu.be/-lPjSiizmCI
+
+### Presentation link
+
+https://docs.google.com/presentation/d/1osl5vrxGRXqx1QkJhoWhC6rh83X2Kr2OMlprzH5XEH0/edit?userstoinvite=abhimah@umd.edu#slide=id.g107542cf1d8_6_10
+
+### Robot Simulation link
+
 Video link: https://youtu.be/NrRCCqRFqw4
 
 ### Development Team
