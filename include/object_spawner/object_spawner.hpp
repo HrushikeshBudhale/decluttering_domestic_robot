@@ -48,14 +48,48 @@
 
 class ObjectSpawner {
  public:
+   /**
+   * @brief Constructor for the ObjectSpawner class
+   * 
+   * @param node_handle 
+   */
     explicit ObjectSpawner(ros::NodeHandle*);
+
+   /**
+    * @brief Method to spawn the object 
+    * 
+    * @return true if the object is spawned
+    * @return false if the object is not spawned
+    */
     bool spawn_object();
+
+    /**
+   * @brief Method to set position of the object in Gazebo
+   *  
+   */
     void set_object_pose(geometry_msgs::Pose);
+
+    /**
+     * @brief Flag to check if the object is in robot's hand
+     * 
+     */
     bool is_object_in_hand;
 
  private:
+ /**
+  * @brief Service server for setting the state of the object
+  * 
+  * @param req object starts publishing position if "req" is true
+  * @param res 
+  * @return true  
+  */
     bool set_object_state_cb(std_srvs::SetBool::Request&,
                             std_srvs::SetBool::Response&);
+/**
+   * @brief ROS publisher that publishes position of the object and updates
+   *  its frame in tf
+   * 
+   */                         
     void publish_pose(const ros::TimerEvent&);
 
     unsigned int seed;
