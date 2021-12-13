@@ -10,16 +10,19 @@
  */
 
 
-#include <navigation/navigation.hpp>
+#include "navigation/navigation.hpp"
 
 Navigation::Navigation(ros::NodeHandle* node_handle) {
+    
+    //  Initializing parameter values
     nh_ = node_handle;
     turn_state = TURN_COMPLETE;
     is_pose_initialized_ = false;
     checkpoint_counter_ = -1;
     bin_location_.position.x = 0;
     bin_location_.position.y = 0;
-
+    
+    //  Initializing publishers and subscribers  
     goal_pub_ = nh_->advertise<geometry_msgs::PoseStamped>(
                                             "/move_base_simple/goal", 10);
     vel_pub_ = nh_->advertise<geometry_msgs::Twist>(
@@ -30,14 +33,18 @@ Navigation::Navigation(ros::NodeHandle* node_handle) {
     cur_pose_sub_ = nh_->subscribe(
         "/robot_pose", 10, &Navigation::robot_pose_cb, this);
 
+    //  Initializing service to clear cost maps
     clear_cost_map_client_ = nh_->serviceClient<std_srvs::Empty>(
                                                 "/move_base/clear_costmaps");
 
+    //  Initializing chaeckpoint list
     initialize_checkpoint_list();
 }
 
 void Navigation::set_next_checkpoint_as_goal() {
     checkpoint_counter_++;
+
+    // Publish new checkpoint goal if they are available
     if (checkpoint_counter_ < checkpoints_.size()) {
         geometry_msgs::PoseStamped goalPose;
         goalPose.pose.position = checkpoints_[checkpoint_counter_].position;
@@ -46,18 +53,19 @@ void Navigation::set_next_checkpoint_as_goal() {
         goal_pub_.publish(goalPose);
         goal_pub_.publish(goalPose);
         goal_pose_ = goalPose.pose;
-        ROS_INFO_STREAM("[Navigation] Publishied next checkpoint pose as goal");
+        ROS_INFO_STREAM("[Navigation] Published next checkpoint pose as goal");
     } else {
         ROS_INFO_STREAM("[Navigation] No more checkpoints available");
     }
-    return;
 }
 
+
 void Navigation::set_bin_location_as_goal() {
-    // clear cost map in the existing map
+    //  clear cost map in the existing map
     std_srvs::Empty srv;
     clear_cost_map_client_.call(srv);
 
+    //  publish target bin goal parameters
     geometry_msgs::PoseStamped goalPose;
     goalPose.pose.position = bin_location_.position;
     goalPose.pose.orientation.w = 1.0;
@@ -71,13 +79,17 @@ void Navigation::set_bin_location_as_goal() {
     return;
 }
 
+
 void Navigation::robot_pose_cb(
+    // Receive robot pose parameters
     const geometry_msgs::PoseWithCovarianceStamped &robot_pose) {
     current_pose_ = robot_pose.pose.pose;
     is_pose_initialized_ = true;
 }
 
+
 bool Navigation::is_goal_reached() {
+    // checks whether the robot has reached within a certain radius of the goal
     double x_sq = std::pow(
         current_pose_.position.x- goal_pose_.position.x, 2);
     double y_sq = std::pow(
@@ -110,6 +122,7 @@ void Navigation::turn_around() {
     }
 }
 
+
 void Navigation::stop_moving() {
     actionlib_msgs::GoalID new_msg;
     cancel_goal_pub_.publish(new_msg);
@@ -123,6 +136,7 @@ void Navigation::stop_moving() {
     else
         ROS_INFO_STREAM("[Navigation] Robot stopped moving");
 }
+
 
 void Navigation::set_object_pose_as_goal(geometry_msgs::Pose objectPose) {
     geometry_msgs::PoseStamped goalPose;
