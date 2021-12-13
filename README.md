@@ -7,7 +7,11 @@
 
 ### Project Overview and Description
 Since robots are being rapidly deployed for various domestic applications, Acme Robotics is looking to develop a domestic robot as a part of its 5-year product road-map. The robot called the "Domestic Decluttering Robot" will declutter the house floor by identifying different items, collecting them, and placing them at their desired location in the house.  The robot will scout the house floor to detect and grasp the desired object. Once grasped, it will place the object at the predefined location. The robot will have a camera to identify the object, Lidar sensor to make a 3D map of the environment around it, and a 8 DOF robotic manipulator mounted on it.
- 
+
+### Presentation Video link
+
+Video link: https://youtu.be/NrRCCqRFqw4
+
 ### Development Team
 #### Sprint 1
 * Driver        - Hrushikesh Budhale
@@ -66,25 +70,7 @@ Sprint planning notes can found in [google docs](https://docs.google.com/documen
 ## Known Issues/Bugs
 
 ---
-While running the main source code , we are getting segementation core dumped due to issues with the eigen package.
-Need to resolve in the next iteration.
-
-Having issue while installing matplotlib.
-
-Added to the backlog for the next iteration.
-
-The issue where the source file might have issue is when the dependancies are not installed properly.
-
-Make sure you install the correct packages.
-
-Check out this link for installing Eigen:
-https://eigen.tuxfamily.org/dox/GettingStarted.html
-
-Check out this link for installing matplotlib:
-https://matplotlib-cpp.readthedocs.io/en/latest/
-
-Check out this link for visual kinematics - python 
-https://github.com/dbddqy/visual_kinematics
+Picking the object at certain positions and orientation is not possible for the robot.
 
 ---
 
@@ -92,6 +78,7 @@ https://github.com/dbddqy/visual_kinematics
 
 ```
 sudo apt-get install git
+Install Tiago packages using the link: http://wiki.ros.org/Robots/TIAGo/Tutorials/Installation/InstallUbuntuAndROS
 cd <catkin workspace>/src
 git clone --recursive https://github.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver.git
 cd ..
@@ -100,9 +87,15 @@ source ./devel/setup.bash
 roslaunch decluttering_domestic_robot simulation.launch
 
 ```
-### To Run the Test
+### To Build the Tests
 
 ```
-Run tests: ./test/cpp-test
+Using Catkin Make: catkin_make tests
+
+```
+### To Run the Tests
+
+```
+rostest decluttering_domestic_robot main_test.test
 
 ```
