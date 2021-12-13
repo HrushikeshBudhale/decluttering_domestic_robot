@@ -74,13 +74,19 @@ Picking the object at certain positions and orientation is not possible for the 
 
 ---
 
-### Building the Program
+### Installing Tiago package
 
 ```
-sudo apt-get install git
 Install Tiago packages using the link: http://wiki.ros.org/Robots/TIAGo/Tutorials/Installation/InstallUbuntuAndROS
+
+```
+
+### Building and running the Program
+
+```
 cd <catkin workspace>/src
-git clone --recursive https://github.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver.git
+sudo apt-get install git
+git clone --recursive https://github.com/HrushikeshBudhale/decluttering_domestic_robot.git
 cd ..
 catkin build
 source ./devel/setup.bash
