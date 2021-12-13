@@ -14,6 +14,17 @@ Since robots are being rapidly deployed for various domestic applications, Acme 
 * Navigator     - Abhijit Mahalle
 * Design Keeper - Ameya Konkar
 
+#### Sprint 1
+* Driver        - Abhijit Mahalle
+* Navigator     - Ameya Konkar
+* Design Keeper - Hrushikesh Budhale
+
+#### Sprint 1
+* Driver        - Ameya Konkar
+* Navigator     - Hrushikesh Budhale
+* Design Keeper - Abhijit Mahalle
+
+
 ### Product Backlog
 Product backlog can be found in [google sheet](https://docs.google.com/spreadsheets/d/1uLx1TDejwb_q-EkkCh65zcsgOdo6YiGDN0ZlcO-tUYo/edit?usp=sharing)
 
@@ -48,6 +59,50 @@ Sprint planning notes can found in [google docs](https://docs.google.com/documen
 ### External Dependencies
 - [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)
 - [Gazebo](http://gazebosim.org/)
-- [Fetch Robot](http://docs.fetchrobotics.com/)
+- [Tiago Robot](http://wiki.ros.org/Robots/TIAGo/Tutorials)
 - [Moveit](https://moveit.ros.org/)
 - [Opencv](https://github.com/opencv/opencv)
+
+## Known Issues/Bugs
+
+---
+While running the main source code , we are getting segementation core dumped due to issues with the eigen package.
+Need to resolve in the next iteration.
+
+Having issue while installing matplotlib.
+
+Added to the backlog for the next iteration.
+
+The issue where the source file might have issue is when the dependancies are not installed properly.
+
+Make sure you install the correct packages.
+
+Check out this link for installing Eigen:
+https://eigen.tuxfamily.org/dox/GettingStarted.html
+
+Check out this link for installing matplotlib:
+https://matplotlib-cpp.readthedocs.io/en/latest/
+
+Check out this link for visual kinematics - python 
+https://github.com/dbddqy/visual_kinematics
+
+---
+
+### Building the Program
+
+```
+sudo apt-get install git
+cd <catkin workspace>/src
+git clone --recursive https://github.com/ameyakonk/ENPM808X_Midterm_Manipulator_IKSolver.git
+cd ..
+catkin build
+source ./devel/setup.bash
+roslaunch decluttering_domestic_robot simulation.launch
+
+```
+### To Run the Test
+
+```
+Run tests: ./test/cpp-test
+
+```
