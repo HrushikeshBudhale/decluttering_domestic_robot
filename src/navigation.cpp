@@ -173,8 +173,8 @@ void Navigation::set_object_pose_as_goal(geometry_msgs::Pose objectPose) {
 }
 
 void Navigation::initialize_checkpoint_list() {
-    int cp_arr_x[5] = {0, 1, 4, -1, -4};
-    int cp_arr_y[5] = {0, -1, -6, -6, -3};
+    int cp_arr_x[5] = {-1, 1, 4, -1, -4};
+    int cp_arr_y[5] = {1, -1, -6, -6, -3};
     for (int i = 0; i < 5; i++) {
         geometry_msgs::Pose checkpoint_pose;
         checkpoint_pose.position.x = cp_arr_x[i];
