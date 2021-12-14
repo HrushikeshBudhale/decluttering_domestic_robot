@@ -31,14 +31,23 @@
 * 
 */
 
-#include <dcrobot/dcrobot.hpp>
+#include "dcrobot/dcrobot.hpp"
+
 
 int main(int argc, char *argv[]) {
     // Initialize the node
     ros::init(argc, argv, "dcrobot_node");
     ROS_INFO_STREAM("[dcrobot_node] Started dcrobot_node");
-    ros::NodeHandle nh;
-    DCRobot dcr();  // Create DCRobot object
-    ros::spin();
+    ros::NodeHandle nh_;
+
+    DCRobot dcr(&nh_);  // Create DCRobot object
+
+    ros::Duration(10).sleep();
+    ros::Rate r(10);
+    while (ros::ok()) {
+        dcr.handle_states();
+        r.sleep();
+        ros::spinOnce();
+    }
     return 0;
 }

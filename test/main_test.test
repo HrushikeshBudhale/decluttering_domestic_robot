@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <launch>
-  <!-- <node pkg="decluttering_domestic_robot" name="dcrobot" type="dcrobot_node" output="screen"/> -->
+  <node pkg="decluttering_domestic_robot" name="dcrobot" type="dcrobot_node" output="screen"/>
+  <node pkg="decluttering_domestic_robot" name="object_spawner" type="object_spawner_node" output="screen"/>
   <test pkg="decluttering_domestic_robot" test-name="main_tests" type="main_rostest" />
 </launch>
 

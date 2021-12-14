@@ -42,6 +42,9 @@ ObjectSpawner::ObjectSpawner(ros::NodeHandle* node_handle):
     map_range[2] = 5;    // x max
     map_range[3] = 7;    // y max
 
+    ros::topic::waitForMessage<geometry_msgs::PoseWithCovarianceStamped>(
+                                            "/robot_pose", ros::Duration(10));
+
     nh_ = node_handle;
     pose_pub_ = nh_->advertise<gazebo_msgs::ModelState>(
                                                 "/gazebo/set_model_state", 10);
@@ -84,9 +87,11 @@ bool ObjectSpawner::spawn_object() {
     srv.request.initial_pose.position.z = 0.025;
     srv.request.initial_pose.orientation.w = 1;
     srv.request.reference_frame = "world";
+    srv.response.success = true;
+    spawn_object_client_.call(srv);
 
 
-    if (spawn_object_client_.call(srv)) {
+    if (srv.response.success) {
         ROS_INFO_STREAM("[object_spawner] Object spawned successfully");
         is_spawned = true;
         // Update tf frame
