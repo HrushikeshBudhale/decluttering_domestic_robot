@@ -89,12 +89,11 @@ find_package(Eigen3 REQUIRED)
 #   geometry_msgs#   sensor_msgs#   std_msgs
 # )
 
+###################################
+## catkin specific configuration ##
+###################################
 
-add_library(dcrobot_library src/dcrobot.cpp)
-add_library(navigation_library src/navigation.cpp)
-add_library(detect_object_library src/detect_object.cpp)
-add_library(grasp_object_library src/grasp_object.cpp)
-
+catkin_package()
 
 ###########
 ## Build ##
@@ -102,13 +101,19 @@ add_library(grasp_object_library src/grasp_object.cpp)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 
+add_library(dcrobot_library src/dcrobot.cpp)
+add_library(navigation_library src/navigation.cpp)
+add_library(detect_object_library src/detect_object.cpp)
+add_library(grasp_object_library src/grasp_object.cpp)
+add_library(object_spawner_library src/object_spawner.cpp)
+
+
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
 )
 
 add_executable(dcrobot_node src/dcrobot_node.cpp)
-
 
 target_link_libraries(dcrobot_node
   dcrobot_library
@@ -118,8 +123,6 @@ target_link_libraries(dcrobot_node
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
 )
-
-add_library(object_spawner_library src/object_spawner.cpp)
 
 add_executable(object_spawner_node src/object_spawner_node.cpp)
 
@@ -131,13 +134,28 @@ target_link_libraries(object_spawner_node
 #############
 ## Testing ##
 #############
-if (CATKIN_ENABLE_TESTING)
-	find_package(rostest REQUIRED)
-	add_rostest_gtest(main_rostest 
-	  test/main_test.test 
-	  test/navigation_test.cpp
-	)
-	target_link_libraries(
-	  main_rostest ${catkin_LIBRARIES}
-	)
+
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  add_rostest_gtest(main_rostest
+    test/main_test.test
+    test/main.cpp
+    
+    test/dcrobot_test.cpp
+    test/navigation_test.cpp
+    test/detect_object_test.cpp
+    test/grasp_object_test.cpp
+    test/object_spawner_test.cpp
+  )
+
+  target_link_libraries(main_rostest
+    ${catkin_LIBRARIES}
+    ${OpenCV_LIBRARIES}
+
+    dcrobot_library
+    navigation_library
+    detect_object_library
+    grasp_object_library
+    object_spawner_library
+  )
 endif()
