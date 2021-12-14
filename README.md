@@ -79,14 +79,14 @@ doxygen docs/doxygen_config.conf
 
 ### Activity Diagram
 <p align="center">
-  <img src="https://github.com/HrushikeshBudhale/decluttering_domestic_robot/blob/sprint1/uml/initial/activity_diagram.png" alt="ACTIVITY DIAGRAM" width="300"/>
+  <img src="https://github.com/HrushikeshBudhale/decluttering_domestic_robot/blob/main/uml/initial/activity_diagram.png" alt="ACTIVITY DIAGRAM" width="300"/>
 </p>
 
 ---
 
 ### UML Class Diagram
 <p align="center">
-  <img src="https://github.com/HrushikeshBudhale/decluttering_domestic_robot/blob/sprint1/uml/revised/class_diagram.png" alt="UML Diagram" width="600"/>
+  <img src="https://github.com/HrushikeshBudhale/decluttering_domestic_robot/blob/main/uml/revised/class_diagram.png" alt="UML Diagram" width="600"/>
 </p>
 
 ---
