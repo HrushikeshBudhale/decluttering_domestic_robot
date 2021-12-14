@@ -1,0 +1,87 @@
+\href{https://github.com/HrushikeshBudhale/decluttering_domestic_robot/actions/workflows/industrial_ci_action.yml}{\texttt{ }} \href{https://coveralls.io/github/HrushikeshBudhale/decluttering_domestic_robot?branch=main}{\texttt{ }} \href{https://opensource.org/licenses/MIT}{\texttt{ }} \hypertarget{index_autotoc_md0}{}\doxysection{decluttering\+\_\+domestic\+\_\+robot}\label{index_autotoc_md0}
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md2}{}\doxysubsubsection{Project Overview and Description}\label{index_autotoc_md2}
+Since robots are being rapidly deployed for various domestic applications, Acme Robotics is looking to develop a domestic robot as a part of its 5-\/year product road-\/map. The robot called the \char`\"{}\+Domestic Decluttering Robot\char`\"{} will declutter the house floor by identifying different items, collecting them, and placing them at their desired location in the house. The robot will scout the house floor to detect and grasp the desired object. Once grasped, it will place the object at the predefined location. The robot will have a camera to identify the object, Lidar sensor to make a 3D map of the environment around it, and a 8 D\+OF robotic manipulator mounted on it.\hypertarget{index_autotoc_md3}{}\doxysubsubsection{Presentation Video link}\label{index_autotoc_md3}
+Video link\+: \href{https://youtu.be/-lPjSiizmCI}{\texttt{ https\+://youtu.\+be/-\/l\+Pj\+Siizm\+CI}}\hypertarget{index_autotoc_md4}{}\doxysubsubsection{Presentation link}\label{index_autotoc_md4}
+\href{https://docs.google.com/presentation/d/1osl5vrxGRXqx1QkJhoWhC6rh83X2Kr2OMlprzH5XEH0/edit?userstoinvite=abhimah@umd.edu\#slide=id.g107542cf1d8_6_10}{\texttt{ https\+://docs.\+google.\+com/presentation/d/1osl5vrx\+G\+R\+Xqx1\+Qk\+Jho\+Wh\+C6rh83\+X2\+Kr2\+O\+Mlprz\+H5\+X\+E\+H0/edit?userstoinvite=abhimah@umd.\+edu\#slide=id.\+g107542cf1d8\+\_\+6\+\_\+10}}\hypertarget{index_autotoc_md5}{}\doxysubsubsection{Robot Simulation link}\label{index_autotoc_md5}
+Video link\+: \href{https://youtu.be/NrRCCqRFqw4}{\texttt{ https\+://youtu.\+be/\+Nr\+R\+C\+Cq\+R\+Fqw4}}\hypertarget{index_autotoc_md6}{}\doxysubsubsection{Development Team}\label{index_autotoc_md6}
+\hypertarget{index_autotoc_md7}{}\doxyparagraph{Sprint 1}\label{index_autotoc_md7}
+
+\begin{DoxyItemize}
+\item Driver -\/ Hrushikesh Budhale
+\item Navigator -\/ Abhijit Mahalle
+\item Design Keeper -\/ Ameya Konkar
+\end{DoxyItemize}\hypertarget{index_autotoc_md8}{}\doxyparagraph{Sprint 1}\label{index_autotoc_md8}
+
+\begin{DoxyItemize}
+\item Driver -\/ Abhijit Mahalle
+\item Navigator -\/ Ameya Konkar
+\item Design Keeper -\/ Hrushikesh Budhale
+\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxyparagraph{Sprint 1}\label{index_autotoc_md9}
+
+\begin{DoxyItemize}
+\item Driver -\/ Ameya Konkar
+\item Navigator -\/ Hrushikesh Budhale
+\item Design Keeper -\/ Abhijit Mahalle
+\end{DoxyItemize}\hypertarget{index_autotoc_md10}{}\doxysubsubsection{Product Backlog}\label{index_autotoc_md10}
+Product backlog can be found in \href{https://docs.google.com/spreadsheets/d/1uLx1TDejwb_q-EkkCh65zcsgOdo6YiGDN0ZlcO-tUYo/edit?usp=sharing}{\texttt{ google sheet}}\hypertarget{index_autotoc_md11}{}\doxysubsubsection{Sprint planning notes}\label{index_autotoc_md11}
+Sprint planning notes can found in \href{https://docs.google.com/document/d/1j18MeeHkREd-rwEOQwoSgQbipBhqeb5pdRHkQmvJkCU/edit?usp=sharing}{\texttt{ google docs}}\hypertarget{index_autotoc_md12}{}\doxysubsubsection{Deliverables}\label{index_autotoc_md12}
+
+\begin{DoxyItemize}
+\item Developer level documentation using doxygen
+\item Build status using travis CI
+\item Code coverage using coveralls
+\item Accurate implementation using generated test cases in gtest
+\item Tests for ros nodes in rostest
+\item Steps showing how to build the repository
+\item Steps showing how to run test and demo applications
+\item Steps showing how to generate Doxygen documentation
+\item Valgrind output for memory leak check
+\end{DoxyItemize}\hypertarget{index_autotoc_md13}{}\doxysubsubsection{Activity Diagram}\label{index_autotoc_md13}
+ 
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md15}{}\doxysubsubsection{U\+M\+L Class Diagram}\label{index_autotoc_md15}
+ 
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md17}{}\doxysubsubsection{External Dependencies}\label{index_autotoc_md17}
+
+\begin{DoxyItemize}
+\item \href{http://wiki.ros.org/melodic/Installation/Ubuntu}{\texttt{ R\+OS Melodic}}
+\item \href{http://gazebosim.org/}{\texttt{ Gazebo}}
+\item \href{http://wiki.ros.org/Robots/TIAGo/Tutorials}{\texttt{ Tiago Robot}}
+\item \href{https://moveit.ros.org/}{\texttt{ Moveit}}
+\item \href{https://github.com/opencv/opencv}{\texttt{ Opencv}}
+\end{DoxyItemize}\hypertarget{index_autotoc_md18}{}\doxysubsection{Known Issues/\+Bugs}\label{index_autotoc_md18}
+\DoxyHorRuler{0}
+ Picking the object at certain positions and orientation is not possible for the robot.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md21}{}\doxysubsubsection{Installing Tiago package}\label{index_autotoc_md21}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Install Tiago packages using the link: http://wiki.ros.org/Robots/TIAGo/Tutorials/Installation/InstallUbuntuAndROS}
+\end{DoxyCode}
+\hypertarget{index_autotoc_md22}{}\doxysubsubsection{Building and running the Program}\label{index_autotoc_md22}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd <catkin workspace>/src}
+\DoxyCodeLine{sudo apt-\/get install git}
+\DoxyCodeLine{git clone -\/-\/recursive https://github.com/HrushikeshBudhale/decluttering\_domestic\_robot.git}
+\DoxyCodeLine{cd ..}
+\DoxyCodeLine{catkin build}
+\DoxyCodeLine{source ./devel/setup.bash}
+\DoxyCodeLine{roslaunch decluttering\_domestic\_robot simulation.launch}
+\end{DoxyCode}
+\hypertarget{index_autotoc_md23}{}\doxysubsubsection{To Build the Tests}\label{index_autotoc_md23}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Using Catkin Make: catkin\_make tests}
+\end{DoxyCode}
+\hypertarget{index_autotoc_md24}{}\doxysubsubsection{To Run the Tests}\label{index_autotoc_md24}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{rostest decluttering\_domestic\_robot main\_test.test}
+\end{DoxyCode}
+ 
