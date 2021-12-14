@@ -1,0 +1,171 @@
+\hypertarget{classNavigation}{}\doxysection{Navigation Class Reference}
+\label{classNavigation}\index{Navigation@{Navigation}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNavigation_ad1510a84ef2a3f84c87795b4af4e26b9}\label{classNavigation_ad1510a84ef2a3f84c87795b4af4e26b9}} 
+enum {\bfseries turning} \{ {\bfseries T\+U\+R\+N\+\_\+\+S\+T\+A\+RT}, 
+{\bfseries T\+U\+R\+N\+I\+NG}, 
+{\bfseries T\+U\+R\+N\+\_\+\+C\+O\+M\+P\+L\+E\+TE}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNavigation_a001f155e15619df08a980438173d7b2e}{Navigation}} (ros\+::\+Node\+Handle $\ast$)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classNavigation}{Navigation}}\+:\+: \mbox{\hyperlink{classNavigation}{Navigation}} object Creates publisher and subscriber objects ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNavigation_a638ba903e6c1e3ed674692d6cd759a05}{set\+\_\+next\+\_\+checkpoint\+\_\+as\+\_\+goal}} ()
+\begin{DoxyCompactList}\small\item\em Updates new checkpoints as goal for the robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNavigation_ac3437212c414e5ed614176d3f7446cde}{set\+\_\+bin\+\_\+location\+\_\+as\+\_\+goal}} ()
+\begin{DoxyCompactList}\small\item\em sets bin location as goal for the robot \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNavigation_a0627e7bc4535c0b11725b34af8e89b0a}{robot\+\_\+pose\+\_\+cb}} (const geometry\+\_\+msgs\+::\+Pose\+With\+Covariance\+Stamped \&)
+\begin{DoxyCompactList}\small\item\em Callback function to obtain current robot position and orientation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNavigation_ab83b44220a2af255d617b79e9293cd47}{is\+\_\+goal\+\_\+reached}} ()
+\begin{DoxyCompactList}\small\item\em Checks if a given is reached. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNavigation_a0a807454e88d30fde151c5b165d93633}{turn\+\_\+around}} ()
+\begin{DoxyCompactList}\small\item\em turns the robot by 180 degree or till the object is detected. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNavigation_a864136db7b6120113d4627a7f84b0e20}{stop\+\_\+moving}} ()
+\begin{DoxyCompactList}\small\item\em Stops moving the robot once the robot has reached within a certain distance from the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNavigation_a0087d1d80e0b756ea30e4af9a4138438}{set\+\_\+object\+\_\+pose\+\_\+as\+\_\+goal}} (geometry\+\_\+msgs\+::\+Pose)
+\begin{DoxyCompactList}\small\item\em Sets object coordinates as a goal to the robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNavigation_a7665de760dcceb9f90ec7eccbde0d8e9}\label{classNavigation_a7665de760dcceb9f90ec7eccbde0d8e9}} 
+turning {\bfseries turn\+\_\+state}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNavigation_a001f155e15619df08a980438173d7b2e}\label{classNavigation_a001f155e15619df08a980438173d7b2e}} 
+\index{Navigation@{Navigation}!Navigation@{Navigation}}
+\index{Navigation@{Navigation}!Navigation@{Navigation}}
+\doxysubsubsection{\texorpdfstring{Navigation()}{Navigation()}}
+{\footnotesize\ttfamily Navigation\+::\+Navigation (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle $\ast$}]{node\+\_\+handle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new \mbox{\hyperlink{classNavigation}{Navigation}}\+:\+: \mbox{\hyperlink{classNavigation}{Navigation}} object Creates publisher and subscriber objects ~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+\_\+handle} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNavigation_ab83b44220a2af255d617b79e9293cd47}\label{classNavigation_ab83b44220a2af255d617b79e9293cd47}} 
+\index{Navigation@{Navigation}!is\_goal\_reached@{is\_goal\_reached}}
+\index{is\_goal\_reached@{is\_goal\_reached}!Navigation@{Navigation}}
+\doxysubsubsection{\texorpdfstring{is\_goal\_reached()}{is\_goal\_reached()}}
+{\footnotesize\ttfamily bool Navigation\+::is\+\_\+goal\+\_\+reached (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if a given is reached. 
+
+\begin{DoxyReturn}{Returns}
+true if goal reached. 
+
+false if goal is not reached. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNavigation_a0627e7bc4535c0b11725b34af8e89b0a}\label{classNavigation_a0627e7bc4535c0b11725b34af8e89b0a}} 
+\index{Navigation@{Navigation}!robot\_pose\_cb@{robot\_pose\_cb}}
+\index{robot\_pose\_cb@{robot\_pose\_cb}!Navigation@{Navigation}}
+\doxysubsubsection{\texorpdfstring{robot\_pose\_cb()}{robot\_pose\_cb()}}
+{\footnotesize\ttfamily void Navigation\+::robot\+\_\+pose\+\_\+cb (\begin{DoxyParamCaption}\item[{const geometry\+\_\+msgs\+::\+Pose\+With\+Covariance\+Stamped \&}]{robot\+\_\+pose }\end{DoxyParamCaption})}
+
+
+
+Callback function to obtain current robot position and orientation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em robot\+\_\+pose} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNavigation_ac3437212c414e5ed614176d3f7446cde}\label{classNavigation_ac3437212c414e5ed614176d3f7446cde}} 
+\index{Navigation@{Navigation}!set\_bin\_location\_as\_goal@{set\_bin\_location\_as\_goal}}
+\index{set\_bin\_location\_as\_goal@{set\_bin\_location\_as\_goal}!Navigation@{Navigation}}
+\doxysubsubsection{\texorpdfstring{set\_bin\_location\_as\_goal()}{set\_bin\_location\_as\_goal()}}
+{\footnotesize\ttfamily void Navigation\+::set\+\_\+bin\+\_\+location\+\_\+as\+\_\+goal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets bin location as goal for the robot 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNavigation_a638ba903e6c1e3ed674692d6cd759a05}\label{classNavigation_a638ba903e6c1e3ed674692d6cd759a05}} 
+\index{Navigation@{Navigation}!set\_next\_checkpoint\_as\_goal@{set\_next\_checkpoint\_as\_goal}}
+\index{set\_next\_checkpoint\_as\_goal@{set\_next\_checkpoint\_as\_goal}!Navigation@{Navigation}}
+\doxysubsubsection{\texorpdfstring{set\_next\_checkpoint\_as\_goal()}{set\_next\_checkpoint\_as\_goal()}}
+{\footnotesize\ttfamily void Navigation\+::set\+\_\+next\+\_\+checkpoint\+\_\+as\+\_\+goal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates new checkpoints as goal for the robot. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNavigation_a0087d1d80e0b756ea30e4af9a4138438}\label{classNavigation_a0087d1d80e0b756ea30e4af9a4138438}} 
+\index{Navigation@{Navigation}!set\_object\_pose\_as\_goal@{set\_object\_pose\_as\_goal}}
+\index{set\_object\_pose\_as\_goal@{set\_object\_pose\_as\_goal}!Navigation@{Navigation}}
+\doxysubsubsection{\texorpdfstring{set\_object\_pose\_as\_goal()}{set\_object\_pose\_as\_goal()}}
+{\footnotesize\ttfamily void Navigation\+::set\+\_\+object\+\_\+pose\+\_\+as\+\_\+goal (\begin{DoxyParamCaption}\item[{geometry\+\_\+msgs\+::\+Pose}]{object\+Pose }\end{DoxyParamCaption})}
+
+
+
+Sets object coordinates as a goal to the robot. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em object\+Pose} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNavigation_a864136db7b6120113d4627a7f84b0e20}\label{classNavigation_a864136db7b6120113d4627a7f84b0e20}} 
+\index{Navigation@{Navigation}!stop\_moving@{stop\_moving}}
+\index{stop\_moving@{stop\_moving}!Navigation@{Navigation}}
+\doxysubsubsection{\texorpdfstring{stop\_moving()}{stop\_moving()}}
+{\footnotesize\ttfamily void Navigation\+::stop\+\_\+moving (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops moving the robot once the robot has reached within a certain distance from the object. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNavigation_a0a807454e88d30fde151c5b165d93633}\label{classNavigation_a0a807454e88d30fde151c5b165d93633}} 
+\index{Navigation@{Navigation}!turn\_around@{turn\_around}}
+\index{turn\_around@{turn\_around}!Navigation@{Navigation}}
+\doxysubsubsection{\texorpdfstring{turn\_around()}{turn\_around()}}
+{\footnotesize\ttfamily void Navigation\+::turn\+\_\+around (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+turns the robot by 180 degree or till the object is detected. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/navigation/\mbox{\hyperlink{navigation_8hpp}{navigation.\+hpp}}\item 
+src/\mbox{\hyperlink{navigation_8cpp}{navigation.\+cpp}}\end{DoxyCompactItemize}

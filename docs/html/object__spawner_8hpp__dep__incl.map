@@ -1,0 +1,7 @@
+<map id="include/object_spawner/object_spawner.hpp" name="include/object_spawner/object_spawner.hpp">
+<area shape="rect" id="node1" title="Header file for the ObjectSpawner class." alt="" coords="103,5,261,47"/>
+<area shape="rect" id="node2" href="$object__spawner_8cpp.html" title="Library file for the DetectObject class." alt="" coords="5,95,164,121"/>
+<area shape="rect" id="node3" href="$dcrobot_8hpp.html" title="Header file for high level class encompassing navagation, grasp_object, and detect_object classes...." alt="" coords="188,95,371,121"/>
+<area shape="rect" id="node4" href="$dcrobot_8cpp.html" title="LIbrary file for DCRobot class." alt="" coords="146,169,258,196"/>
+<area shape="rect" id="node5" href="$dcrobot__node_8cpp.html" title="Main file for dcrobot ros node." alt="" coords="282,169,429,196"/>
+</map>

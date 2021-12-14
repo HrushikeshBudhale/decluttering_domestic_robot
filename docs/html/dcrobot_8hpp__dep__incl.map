@@ -1,0 +1,5 @@
+<map id="include/dcrobot/dcrobot.hpp" name="include/dcrobot/dcrobot.hpp">
+<area shape="rect" id="node1" title="Header file for high level class encompassing navagation, grasp_object, and detect_object classes...." alt="" coords="46,5,229,32"/>
+<area shape="rect" id="node2" href="$dcrobot_8cpp.html" title="LIbrary file for DCRobot class." alt="" coords="5,80,117,107"/>
+<area shape="rect" id="node3" href="$dcrobot__node_8cpp.html" title="Main file for dcrobot ros node." alt="" coords="141,80,288,107"/>
+</map>

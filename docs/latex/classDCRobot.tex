@@ -1,0 +1,160 @@
+\hypertarget{classDCRobot}{}\doxysection{D\+C\+Robot Class Reference}
+\label{classDCRobot}\index{DCRobot@{DCRobot}}
+
+
+Collaboration diagram for D\+C\+Robot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{classDCRobot__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classDCRobot_a751fa9b098d7f86b5cee0a8a93dfc57b}{robot\+State}} \{ \newline
+{\bfseries S\+T\+A\+R\+T\+I\+NG}, 
+{\bfseries I\+D\+LE}, 
+{\bfseries M\+O\+V\+I\+N\+G\+\_\+\+T\+O\+\_\+\+C\+H\+E\+C\+K\+P\+O\+I\+NT}, 
+{\bfseries T\+U\+R\+N\+I\+N\+G\+\_\+\+A\+R\+O\+U\+ND}, 
+\newline
+{\bfseries O\+B\+J\+E\+C\+T\+\_\+\+F\+O\+U\+ND}, 
+{\bfseries M\+O\+V\+I\+N\+G\+\_\+\+T\+O\+W\+A\+R\+D\+S\+\_\+\+O\+B\+J\+E\+CT}, 
+{\bfseries P\+I\+C\+K\+I\+N\+G\+\_\+\+O\+B\+J\+E\+CT}, 
+{\bfseries M\+O\+V\+I\+N\+G\+\_\+\+T\+O\+\_\+\+B\+I\+N\+\_\+\+L\+O\+C\+A\+T\+I\+ON}, 
+\newline
+{\bfseries P\+L\+A\+C\+I\+N\+G\+\_\+\+O\+B\+J\+E\+CT}, 
+{\bfseries S\+T\+OP}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerations various robot functioning states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDCRobot_abd40a1f9013d290e8b576e79171c3ec3}{D\+C\+Robot}} (ros\+::\+Node\+Handle $\ast$)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classDCRobot}{D\+C\+Robot}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDCRobot_add2837c4d92ab954723dc1ea36b9bf00}{handle\+\_\+states}} ()
+\begin{DoxyCompactList}\small\item\em Synchronizes various tasks of the robot. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDCRobot_a3c1025862a9d857fb5e2f86097f30543}{is\+\_\+obj\+\_\+within\+\_\+reach}} ()
+\begin{DoxyCompactList}\small\item\em Checks whether the object is within reach of the robot. \end{DoxyCompactList}\item 
+geometry\+\_\+msgs\+::\+Pose \mbox{\hyperlink{classDCRobot_a5f0b0cdf93dca95eefa89d198a916c19}{get\+\_\+object\+\_\+pose}} (std\+::string wrt=\char`\"{}map\char`\"{})
+\begin{DoxyCompactList}\small\item\em Gets object pose from the world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDCRobot_afc7876d5a0a47a55187975f1cf681b20}{pick\+\_\+up\+\_\+object}} ()
+\begin{DoxyCompactList}\small\item\em Handles object picking by the robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDCRobot_a7d2217ad6dd2fe9003d1616b8972649a}{place\+\_\+object}} ()
+\begin{DoxyCompactList}\small\item\em Handles object placement by the robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNavigation}{Navigation}} \mbox{\hyperlink{classDCRobot_aa6a8ba30c664b7493f0f5883732bae62}{navigator}}
+\item 
+\mbox{\hyperlink{classGraspObject}{Grasp\+Object}} \mbox{\hyperlink{classDCRobot_a8fd534ac32bdcd30dddf8d98cbc63f7c}{grasp\+Obj}}
+\item 
+\mbox{\hyperlink{classDetectObject}{Detect\+Object}} \mbox{\hyperlink{classDCRobot_acf1cb8e72f3e7d36bd06a95f4d49871a}{detect\+Obj}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classDCRobot_a751fa9b098d7f86b5cee0a8a93dfc57b}\label{classDCRobot_a751fa9b098d7f86b5cee0a8a93dfc57b}} 
+\index{DCRobot@{DCRobot}!robotState@{robotState}}
+\index{robotState@{robotState}!DCRobot@{DCRobot}}
+\doxysubsubsection{\texorpdfstring{robotState}{robotState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classDCRobot_a751fa9b098d7f86b5cee0a8a93dfc57b}{D\+C\+Robot\+::robot\+State}}}
+
+
+
+Enumerations various robot functioning states. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDCRobot_abd40a1f9013d290e8b576e79171c3ec3}\label{classDCRobot_abd40a1f9013d290e8b576e79171c3ec3}} 
+\index{DCRobot@{DCRobot}!DCRobot@{DCRobot}}
+\index{DCRobot@{DCRobot}!DCRobot@{DCRobot}}
+\doxysubsubsection{\texorpdfstring{DCRobot()}{DCRobot()}}
+{\footnotesize\ttfamily D\+C\+Robot\+::\+D\+C\+Robot (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle $\ast$}]{node\+\_\+handle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new \mbox{\hyperlink{classDCRobot}{D\+C\+Robot}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDCRobot_a5f0b0cdf93dca95eefa89d198a916c19}\label{classDCRobot_a5f0b0cdf93dca95eefa89d198a916c19}} 
+\index{DCRobot@{DCRobot}!get\_object\_pose@{get\_object\_pose}}
+\index{get\_object\_pose@{get\_object\_pose}!DCRobot@{DCRobot}}
+\doxysubsubsection{\texorpdfstring{get\_object\_pose()}{get\_object\_pose()}}
+{\footnotesize\ttfamily geometry\+\_\+msgs\+::\+Pose D\+C\+Robot\+::get\+\_\+object\+\_\+pose (\begin{DoxyParamCaption}\item[{std\+::string}]{wrt = {\ttfamily \char`\"{}map\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Gets object pose from the world. 
+
+\mbox{\Hypertarget{classDCRobot_add2837c4d92ab954723dc1ea36b9bf00}\label{classDCRobot_add2837c4d92ab954723dc1ea36b9bf00}} 
+\index{DCRobot@{DCRobot}!handle\_states@{handle\_states}}
+\index{handle\_states@{handle\_states}!DCRobot@{DCRobot}}
+\doxysubsubsection{\texorpdfstring{handle\_states()}{handle\_states()}}
+{\footnotesize\ttfamily void D\+C\+Robot\+::handle\+\_\+states (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Synchronizes various tasks of the robot. 
+
+\mbox{\Hypertarget{classDCRobot_a3c1025862a9d857fb5e2f86097f30543}\label{classDCRobot_a3c1025862a9d857fb5e2f86097f30543}} 
+\index{DCRobot@{DCRobot}!is\_obj\_within\_reach@{is\_obj\_within\_reach}}
+\index{is\_obj\_within\_reach@{is\_obj\_within\_reach}!DCRobot@{DCRobot}}
+\doxysubsubsection{\texorpdfstring{is\_obj\_within\_reach()}{is\_obj\_within\_reach()}}
+{\footnotesize\ttfamily bool D\+C\+Robot\+::is\+\_\+obj\+\_\+within\+\_\+reach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks whether the object is within reach of the robot. 
+
+\mbox{\Hypertarget{classDCRobot_afc7876d5a0a47a55187975f1cf681b20}\label{classDCRobot_afc7876d5a0a47a55187975f1cf681b20}} 
+\index{DCRobot@{DCRobot}!pick\_up\_object@{pick\_up\_object}}
+\index{pick\_up\_object@{pick\_up\_object}!DCRobot@{DCRobot}}
+\doxysubsubsection{\texorpdfstring{pick\_up\_object()}{pick\_up\_object()}}
+{\footnotesize\ttfamily void D\+C\+Robot\+::pick\+\_\+up\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles object picking by the robot. 
+
+\mbox{\Hypertarget{classDCRobot_a7d2217ad6dd2fe9003d1616b8972649a}\label{classDCRobot_a7d2217ad6dd2fe9003d1616b8972649a}} 
+\index{DCRobot@{DCRobot}!place\_object@{place\_object}}
+\index{place\_object@{place\_object}!DCRobot@{DCRobot}}
+\doxysubsubsection{\texorpdfstring{place\_object()}{place\_object()}}
+{\footnotesize\ttfamily void D\+C\+Robot\+::place\+\_\+object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles object placement by the robot. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classDCRobot_acf1cb8e72f3e7d36bd06a95f4d49871a}\label{classDCRobot_acf1cb8e72f3e7d36bd06a95f4d49871a}} 
+\index{DCRobot@{DCRobot}!detectObj@{detectObj}}
+\index{detectObj@{detectObj}!DCRobot@{DCRobot}}
+\doxysubsubsection{\texorpdfstring{detectObj}{detectObj}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDetectObject}{Detect\+Object}} D\+C\+Robot\+::detect\+Obj}
+
+Instance for \mbox{\hyperlink{classDetectObject}{Detect\+Object}} class \mbox{\Hypertarget{classDCRobot_a8fd534ac32bdcd30dddf8d98cbc63f7c}\label{classDCRobot_a8fd534ac32bdcd30dddf8d98cbc63f7c}} 
+\index{DCRobot@{DCRobot}!graspObj@{graspObj}}
+\index{graspObj@{graspObj}!DCRobot@{DCRobot}}
+\doxysubsubsection{\texorpdfstring{graspObj}{graspObj}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraspObject}{Grasp\+Object}} D\+C\+Robot\+::grasp\+Obj}
+
+Instance for grasp\+Obj class \mbox{\Hypertarget{classDCRobot_aa6a8ba30c664b7493f0f5883732bae62}\label{classDCRobot_aa6a8ba30c664b7493f0f5883732bae62}} 
+\index{DCRobot@{DCRobot}!navigator@{navigator}}
+\index{navigator@{navigator}!DCRobot@{DCRobot}}
+\doxysubsubsection{\texorpdfstring{navigator}{navigator}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classNavigation}{Navigation}} D\+C\+Robot\+::navigator}
+
+Instance for \mbox{\hyperlink{classNavigation}{Navigation}} class 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dcrobot/\mbox{\hyperlink{dcrobot_8hpp}{dcrobot.\+hpp}}\item 
+src/\mbox{\hyperlink{dcrobot_8cpp}{dcrobot.\+cpp}}\end{DoxyCompactItemize}

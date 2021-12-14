@@ -1,0 +1,7 @@
+<map id="include/navigation/navigation.hpp" name="include/navigation/navigation.hpp">
+<area shape="rect" id="node1" title="Header file for Navigation class responsible for setting goals and handling action for move base." alt="" coords="95,5,222,47"/>
+<area shape="rect" id="node2" href="$navigation_8cpp.html" title="LIbrary file for Navigation class." alt="" coords="5,95,133,121"/>
+<area shape="rect" id="node3" href="$dcrobot_8hpp.html" title="Header file for high level class encompassing navagation, grasp_object, and detect_object classes...." alt="" coords="158,95,341,121"/>
+<area shape="rect" id="node4" href="$dcrobot_8cpp.html" title="LIbrary file for DCRobot class." alt="" coords="116,169,228,196"/>
+<area shape="rect" id="node5" href="$dcrobot__node_8cpp.html" title="Main file for dcrobot ros node." alt="" coords="252,169,399,196"/>
+</map>

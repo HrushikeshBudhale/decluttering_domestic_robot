@@ -1,0 +1,101 @@
+\hypertarget{classGraspObject}{}\doxysection{Grasp\+Object Class Reference}
+\label{classGraspObject}\index{GraspObject@{GraspObject}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGraspObject_a449c99925c6daf8e68480eec2b9d06b6}{Grasp\+Object}} (ros\+::\+Node\+Handle $\ast$)
+\begin{DoxyCompactList}\small\item\em Construct a new Grasp Object object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraspObject_a41f3688f29cf2f3602de5a86dbeb40b8}{move\+\_\+to\+\_\+object\+\_\+pose}} (geometry\+\_\+msgs\+::\+Pose)
+\begin{DoxyCompactList}\small\item\em move robot to object position \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraspObject_afdb227006414c8f899d4484029c6bf94}{move\+\_\+to\+\_\+pick\+\_\+pose}} ()
+\begin{DoxyCompactList}\small\item\em Pick the object from the object position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraspObject_ae7f455a665ec4270679e91f73544d3d7}{move\+\_\+to\+\_\+place\+\_\+pose}} ()
+\begin{DoxyCompactList}\small\item\em Place the object to the bin position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraspObject_afab39c00573a200327d62857e20d79d0}{move\+\_\+arm\+\_\+to\+\_\+pose}} (geometry\+\_\+msgs\+::\+Pose)
+\begin{DoxyCompactList}\small\item\em moves the robot arm to the object location. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ros\+::\+Node\+Handle $\ast$ \mbox{\hyperlink{classGraspObject_acfaee7b4597f68b5928b652b5a4ffd45}{nh\+\_\+}}
+\item 
+ros\+::\+Service\+Client \mbox{\hyperlink{classGraspObject_ad20eddef2c5ef7f88f8d3a3aea1c1c77}{set\+\_\+object\+\_\+state\+\_\+client\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGraspObject_a449c99925c6daf8e68480eec2b9d06b6}\label{classGraspObject_a449c99925c6daf8e68480eec2b9d06b6}} 
+\index{GraspObject@{GraspObject}!GraspObject@{GraspObject}}
+\index{GraspObject@{GraspObject}!GraspObject@{GraspObject}}
+\doxysubsubsection{\texorpdfstring{GraspObject()}{GraspObject()}}
+{\footnotesize\ttfamily Grasp\+Object\+::\+Grasp\+Object (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle $\ast$}]{node\+Handle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Grasp Object object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGraspObject_afab39c00573a200327d62857e20d79d0}\label{classGraspObject_afab39c00573a200327d62857e20d79d0}} 
+\index{GraspObject@{GraspObject}!move\_arm\_to\_pose@{move\_arm\_to\_pose}}
+\index{move\_arm\_to\_pose@{move\_arm\_to\_pose}!GraspObject@{GraspObject}}
+\doxysubsubsection{\texorpdfstring{move\_arm\_to\_pose()}{move\_arm\_to\_pose()}}
+{\footnotesize\ttfamily void Grasp\+Object\+::move\+\_\+arm\+\_\+to\+\_\+pose (\begin{DoxyParamCaption}\item[{geometry\+\_\+msgs\+::\+Pose}]{in\+Pose }\end{DoxyParamCaption})}
+
+
+
+moves the robot arm to the object location. 
+
+\mbox{\Hypertarget{classGraspObject_a41f3688f29cf2f3602de5a86dbeb40b8}\label{classGraspObject_a41f3688f29cf2f3602de5a86dbeb40b8}} 
+\index{GraspObject@{GraspObject}!move\_to\_object\_pose@{move\_to\_object\_pose}}
+\index{move\_to\_object\_pose@{move\_to\_object\_pose}!GraspObject@{GraspObject}}
+\doxysubsubsection{\texorpdfstring{move\_to\_object\_pose()}{move\_to\_object\_pose()}}
+{\footnotesize\ttfamily void Grasp\+Object\+::move\+\_\+to\+\_\+object\+\_\+pose (\begin{DoxyParamCaption}\item[{geometry\+\_\+msgs\+::\+Pose}]{object\+Pose }\end{DoxyParamCaption})}
+
+
+
+move robot to object position 
+
+\mbox{\Hypertarget{classGraspObject_afdb227006414c8f899d4484029c6bf94}\label{classGraspObject_afdb227006414c8f899d4484029c6bf94}} 
+\index{GraspObject@{GraspObject}!move\_to\_pick\_pose@{move\_to\_pick\_pose}}
+\index{move\_to\_pick\_pose@{move\_to\_pick\_pose}!GraspObject@{GraspObject}}
+\doxysubsubsection{\texorpdfstring{move\_to\_pick\_pose()}{move\_to\_pick\_pose()}}
+{\footnotesize\ttfamily void Grasp\+Object\+::move\+\_\+to\+\_\+pick\+\_\+pose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pick the object from the object position. 
+
+\mbox{\Hypertarget{classGraspObject_ae7f455a665ec4270679e91f73544d3d7}\label{classGraspObject_ae7f455a665ec4270679e91f73544d3d7}} 
+\index{GraspObject@{GraspObject}!move\_to\_place\_pose@{move\_to\_place\_pose}}
+\index{move\_to\_place\_pose@{move\_to\_place\_pose}!GraspObject@{GraspObject}}
+\doxysubsubsection{\texorpdfstring{move\_to\_place\_pose()}{move\_to\_place\_pose()}}
+{\footnotesize\ttfamily void Grasp\+Object\+::move\+\_\+to\+\_\+place\+\_\+pose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Place the object to the bin position. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classGraspObject_acfaee7b4597f68b5928b652b5a4ffd45}\label{classGraspObject_acfaee7b4597f68b5928b652b5a4ffd45}} 
+\index{GraspObject@{GraspObject}!nh\_@{nh\_}}
+\index{nh\_@{nh\_}!GraspObject@{GraspObject}}
+\doxysubsubsection{\texorpdfstring{nh\_}{nh\_}}
+{\footnotesize\ttfamily ros\+::\+Node\+Handle$\ast$ Grasp\+Object\+::nh\+\_\+}
+
+Node handle ~\newline
+ \mbox{\Hypertarget{classGraspObject_ad20eddef2c5ef7f88f8d3a3aea1c1c77}\label{classGraspObject_ad20eddef2c5ef7f88f8d3a3aea1c1c77}} 
+\index{GraspObject@{GraspObject}!set\_object\_state\_client\_@{set\_object\_state\_client\_}}
+\index{set\_object\_state\_client\_@{set\_object\_state\_client\_}!GraspObject@{GraspObject}}
+\doxysubsubsection{\texorpdfstring{set\_object\_state\_client\_}{set\_object\_state\_client\_}}
+{\footnotesize\ttfamily ros\+::\+Service\+Client Grasp\+Object\+::set\+\_\+object\+\_\+state\+\_\+client\+\_\+}
+
+Service client to set object state ~\newline
+ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/grasp\+\_\+object/\mbox{\hyperlink{grasp__object_8hpp}{grasp\+\_\+object.\+hpp}}\item 
+src/\mbox{\hyperlink{grasp__object_8cpp}{grasp\+\_\+object.\+cpp}}\end{DoxyCompactItemize}
