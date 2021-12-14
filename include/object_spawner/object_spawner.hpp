@@ -1,7 +1,7 @@
 /**
 * MIT License
 *
-* Copyright(c) 2021 Abhijit Mahalle
+* Copyright(c) 2021
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files(the "Software"), to deal
@@ -21,7 +21,7 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @file object_spawner.hpp
-* @author Abhijit Mahalle
+* @author Driver: Abhijit Mahalle, Navigator: Hrushikesh Budhale
 * @brief Header file for the ObjectSpawner class
 * @version 0.1
 * @date 2021-11-27
@@ -39,6 +39,7 @@
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/buffer.h>
 #include <geometry_msgs/Pose.h>
+#include <geometry_msgs/PoseWithCovarianceStamped.h>
 #include <ros/ros.h>
 
 // Std C++ headers

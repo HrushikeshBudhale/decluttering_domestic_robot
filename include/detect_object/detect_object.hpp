@@ -20,7 +20,7 @@
 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
-* @file detect_object.cpp
+* @file detect_object.hpp
 * @author Abhijit Mahalle
 * @brief Library file for the DetectObject class
 * @version 0.1
@@ -48,14 +48,6 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-// Std C++ headers
-#include <string.h>
-#include <vector>
-
-// OpenCV headers
-#include <opencv2/objdetect/objdetect.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp>
 
 class DetectObject {
  public:
@@ -87,7 +79,6 @@ class DetectObject {
     void image_cb(const sensor_msgs::ImageConstPtr&);
 
  private:
-    int i;
     ros::NodeHandle* nh_;
     cv::Mat img_bgr_, frame_hsv_, frame_thresh_;
     image_transport::ImageTransport image_transport_;

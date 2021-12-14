@@ -9,4 +9,10 @@ Done processing ./src/detect_object.cpp
 Done processing ./src/grasp_object.cpp
 Done processing ./src/navigation.cpp
 Done processing ./src/object_spawner.cpp
-Done processing ./test/test_dcrobot.cpp
+Done processing ./src/object_spawner_node.cpp
+Done processing ./test/dcrobot_test.cpp
+Done processing ./test/detect_object_test.cpp
+Done processing ./test/grasp_object_test.cpp
+Done processing ./test/main.cpp
+Done processing ./test/navigation_test.cpp
+Done processing ./test/object_spawner_test.cpp

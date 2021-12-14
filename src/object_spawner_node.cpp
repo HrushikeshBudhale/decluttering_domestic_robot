@@ -22,8 +22,8 @@
 * SOFTWARE.
 *
 * @file dcrobot_node.cpp
-* @author Driver: Hrushikesh Budhale Navigator: Abhijit Mahalle
-* @brief Main file for dcrobot ros node
+* @author Driver: Abhijit Mahalle Navigator: Hrushikesh Budhale 
+* @brief Main file for object spawner ros node
 * @version 0.1
 * @date 2021-11-29
 * 
@@ -31,23 +31,24 @@
 * 
 */
 
-#include "dcrobot/dcrobot.hpp"
+
+#include "object_spawner/object_spawner.hpp"
 
 
 int main(int argc, char *argv[]) {
     // Initialize the node
-    ros::init(argc, argv, "dcrobot_node");
-    ROS_INFO_STREAM("[dcrobot_node] Started dcrobot_node");
+    ros::init(argc, argv, "object_spawner_node");
+    ROS_INFO_STREAM("[object_spawner_node] Started object_spawner_node");
     ros::NodeHandle nh_;
 
-    DCRobot dcr(&nh_);  // Create DCRobot object
+    // spawn new object
+    ObjectSpawner objectManager(&nh_);
+    objectManager.spawn_object();
 
-    ros::Duration(10).sleep();
     ros::Rate r(10);
     while (ros::ok()) {
-        dcr.handle_states();
-        r.sleep();
         ros::spinOnce();
+        r.sleep();
     }
     return 0;
 }

@@ -20,8 +20,9 @@
 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
+*
 * @file detect_object.cpp
-* @author Abhijit Mahalle
+* @author Driver: Abhijit Mahalle (abhimah@umd.edu), Navigator: Hrushikesh B
 * @brief Library file for the DetectObject class
 * @version 0.1
 * @date 2021-12-04
