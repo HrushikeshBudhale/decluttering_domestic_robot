@@ -1,13 +1,38 @@
 /**
- * @file dcrobot.hpp
- * @author Ameya Konkar (ameyakonk)
- * @brief 
- * @version 0.1
- * @date 2021-12-09
- * 
- * @copyright Copyright (c) 2021
- * 
- */
+* MIT License
+*
+* Copyright(c) 2021
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files(the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*
+* @file dcrobot.hpp
+* @author Driver: Ameya Konkar, Navigator: Hrushikesh Budhale
+* @brief Header file for high level class encompassing navagation, grasp_object,
+*         and detect_object classes. This class is also responsible for
+          controlling robot state throughout the pick and place application.
+* @version 0.1
+* @date 2021-12-09
+* 
+* @copyright Copyright (c) 2021
+* 
+*/
+
 #pragma once
 
 #include <actionlib/client/simple_action_client.h>
@@ -36,38 +61,44 @@ typedef boost::shared_ptr<PointHeadClient> PointHeadClientPtr;
 
 class DCRobot {
  public:
-   /**
+    /**
      * @brief Construct a new DCRobot object
      * 
      */
     explicit DCRobot(ros::NodeHandle*);
+
     /**
      * @brief Synchronizes various tasks of the robot
      * 
      */
     void handle_states();
+
     /**
      * @brief Checks whether the object is within reach of the robot
      * 
      */
     bool is_obj_within_reach();
+
     /**
      * @brief Gets object pose from the world. 
      * 
      */
     geometry_msgs::Pose get_object_pose(std::string wrt = "map");
+
     /**
      * @brief Handles object picking by the robot.
      * 
      */
     void pick_up_object();
+
     /**
      * @brief Handles object placement by the robot.
      * 
      */
     void place_object();
+
     /**
-     * @brief Enumerates various robot functioning states.
+     * @brief Enumerations various robot functioning states.
      * 
      */
     enum robotState {
@@ -82,23 +113,27 @@ class DCRobot {
         PLACING_OBJECT,
         STOP
     };
-    /** Instance for Navigation class created*/
+
+    /** Instance for Navigation class*/
     Navigation navigator;
-    /** Instance for graspObj class created*/
+    /** Instance for graspObj class*/
     GraspObject graspObj;
-    /** Instance for DetectObject class created*/
+    /** Instance for DetectObject class*/
     DetectObject detectObj;
+
  private:
    /**
      * @brief Enumerates various object states.
      * 
      */
     void set_head_down();
+
     /**
      * @brief Enumerates various object states.
      * 
      */
     void create_point_head_client(PointHeadClientPtr&);
+
     /** Node Handle created*/
     ros::NodeHandle* nh_;
     /** TF buffer created*/

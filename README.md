@@ -1,5 +1,5 @@
 ![Build & Test](https://github.com/HrushikeshBudhale/decluttering_domestic_robot/workflows/Build%20&%20Test/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/HrushikeshBudhale/decluttering_domestic_robot/badge.svg?branch=sprint1)](https://coveralls.io/github/HrushikeshBudhale/decluttering_domestic_robot?branch=sprint1)
+[![Coverage Status](https://coveralls.io/repos/github/HrushikeshBudhale/decluttering_domestic_robot/badge.svg?branch=main)](https://coveralls.io/github/HrushikeshBudhale/decluttering_domestic_robot?branch=main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # decluttering_domestic_robot
 

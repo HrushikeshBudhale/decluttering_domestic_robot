@@ -1,5 +1,5 @@
 /**
- * MIT License
+* MIT License
 *
 * Copyright(c) 2021
 *
@@ -21,33 +21,22 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 *
-* @file dcrobot_node.cpp
-* @author Driver: Hrushikesh Budhale Navigator: Abhijit Mahalle
-* @brief Main file for dcrobot ros node
+* @file main.cpp
+* @author Driver: Hrushikesh B Navigator: Ameya Konkar
+* @brief Main file for all ros tests
 * @version 0.1
-* @date 2021-11-29
+* @date 2021-12-09
 * 
 * @copyright Copyright (c) 2021
 * 
 */
 
-#include "dcrobot/dcrobot.hpp"
+#include <gtest/gtest.h>
+#include <ros/ros.h>
 
-
-int main(int argc, char *argv[]) {
-    // Initialize the node
-    ros::init(argc, argv, "dcrobot_node");
-    ROS_INFO_STREAM("[dcrobot_node] Started dcrobot_node");
-    ros::NodeHandle nh_;
-
-    DCRobot dcr(&nh_);  // Create DCRobot object
-
-    ros::Duration(10).sleep();
-    ros::Rate r(10);
-    while (ros::ok()) {
-        dcr.handle_states();
-        r.sleep();
-        ros::spinOnce();
-    }
-    return 0;
+int main(int argc, char **argv) {
+    ros::init(argc, argv, "TestingNode");
+    ros::NodeHandle nh;
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

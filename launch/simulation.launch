@@ -1,22 +1,22 @@
 <launch>
+  
+  <node pkg="decluttering_domestic_robot" name="dcrobot" type="dcrobot_node" output="screen"/>
 
-  <arg name="robot" default="fetch"/>
-  <arg name="debug" default="false"/>
-  <arg name="gui" default="true"/>
-  <arg name="headless" default="false"/>
+  <!-- Launch node for spawning object in gazebo -->
+  <node pkg="decluttering_domestic_robot" name="objectSpawner" type="object_spawner_node" output="screen"/>
 
-<!-- Start Gazebo with a blank world -->
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="debug" value="$(arg debug)" />
-    <arg name="gui" value="$(arg gui)" />
-    <arg name="paused" value="false"/>
-    <arg name="use_sim_time" value="true"/>
-    <arg name="headless" value="$(arg headless)"/>
+  <!-- Launch 'smallHouse' world in Gazebo along with Tiago robot -->
+  <include file="$(find tiago_2dnav_gazebo)/launch/tiago_navigation.launch">
+    <arg name="robot"       value="steel"/>
+    <arg name="world"       value="smallHouse"/>
+    <arg name="lost"        value="false"/>
+    <arg name="public_sim"  value="true"/>
   </include>
 
-  <!-- Oh, you wanted a robot? -->
-  <include file="$(find fetch_gazebo)/launch/include/$(arg robot).launch.xml" />
-
-  <node pkg="decluttering_domestic_robot" name="dcrobot" type="dcrobot" output="screen"/>
-
+  <!-- Record data on topics in rosbag -->
+  <arg name="record_bag" default="false"/>
+  <group if="$(arg record_bag)">
+      <node pkg="rosbag" type="record" name="rosbag_recorder"
+            args="record -O $(find decluttering_domestic_robot)../results/my_bag -a"/>
+  </group>
 </launch>
