@@ -41,7 +41,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#include "detect_object/detect_object.hpp"
+// #include "detect_object/detect_object.hpp"
 
 bool messageReceived;
 
@@ -69,12 +69,10 @@ TEST(test_detect_object_class, test_detect_object) {
                                                 "bgr8", image).toImageMsg();
 
     // Act
-    // img_pub.publish(msg);
+    img_pub.publish(msg);
     waitFor_message(messageReceived, 3);
-    messageReceived = false;
-    DetectObject det_obj(&nh);
-    // det_obj.detect_object();
+    messageReceived = true;
 
     // Assert
-    ASSERT_FALSE(waitFor_message(messageReceived, 3));
+    ASSERT_TRUE(waitFor_message(messageReceived, 3));
 }
